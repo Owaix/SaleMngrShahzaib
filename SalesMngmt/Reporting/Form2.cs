@@ -65,8 +65,8 @@ namespace DIagnoseMgmt
              if (List != null)
             {
 
-                List.AddRange(List);
-                List.AddRange(List);
+                //List.AddRange(List);
+                //List.AddRange(List);
 
                 ReportDataSource ds = new ReportDataSource("Ds", List);
 
