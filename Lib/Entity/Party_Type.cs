@@ -25,5 +25,6 @@ namespace Lib.Entity
         public string Party_Type111111 { get; set; }
         public string Party_Type1111111 { get; set; }
         public string Party_Type11111111 { get; set; }
+        public string Party_Type111111111 { get; set; }
     }
 }

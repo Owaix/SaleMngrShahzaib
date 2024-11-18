@@ -344,6 +344,7 @@
     <EntitySetMapping Name="IUnit">
       <EntityTypeMapping TypeName="SaleManagerShahzaibModel.IUnit">
         <MappingFragment StoreEntitySet="IUnit">
+          <ScalarProperty Name="IUnit111111111" ColumnName="IUnit11111111" />
           <ScalarProperty Name="IUnit11111111" ColumnName="IUnit1111111" />
           <ScalarProperty Name="IUnit1111111" ColumnName="IUnit111111" />
           <ScalarProperty Name="IUnit111111" ColumnName="IUnit11111" />
@@ -456,6 +457,7 @@
     <EntitySetMapping Name="Party_Type">
       <EntityTypeMapping TypeName="SaleManagerShahzaibModel.Party_Type">
         <MappingFragment StoreEntitySet="Party_Type">
+          <ScalarProperty Name="Party_Type111111111" ColumnName="Party_Type11111111" />
           <ScalarProperty Name="Party_Type11111111" ColumnName="Party_Type1111111" />
           <ScalarProperty Name="Party_Type1111111" ColumnName="Party_Type111111" />
           <ScalarProperty Name="Party_Type111111" ColumnName="Party_Type11111" />
@@ -889,6 +891,7 @@
     <EntitySetMapping Name="Zone">
       <EntityTypeMapping TypeName="SaleManagerShahzaibModel.Zone">
         <MappingFragment StoreEntitySet="Zone">
+          <ScalarProperty Name="Zone111111111" ColumnName="Zone11111111" />
           <ScalarProperty Name="Zone11111111" ColumnName="Zone1111111" />
           <ScalarProperty Name="Zone1111111" ColumnName="Zone111111" />
           <ScalarProperty Name="Zone111111" ColumnName="Zone11111" />
@@ -2181,37 +2184,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Sales_D">
-      <EntityTypeMapping TypeName="SaleManagerShahzaibModel.Sales_D">
-        <MappingFragment StoreEntitySet="Sales_D">
-          <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
-          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
-          <ScalarProperty Name="RCancel" ColumnName="RCancel" />
-          <ScalarProperty Name="SRT" ColumnName="SRT" />
-          <ScalarProperty Name="PCK_Det" ColumnName="PCK_Det" />
-          <ScalarProperty Name="Amt" ColumnName="Amt" />
-          <ScalarProperty Name="Amt2" ColumnName="Amt2" />
-          <ScalarProperty Name="DisRs" ColumnName="DisRs" />
-          <ScalarProperty Name="DisAmt" ColumnName="DisAmt" />
-          <ScalarProperty Name="DisP" ColumnName="DisP" />
-          <ScalarProperty Name="PAmt" ColumnName="PAmt" />
-          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
-          <ScalarProperty Name="AddAmt" ColumnName="AddAmt" />
-          <ScalarProperty Name="AddPer" ColumnName="AddPer" />
-          <ScalarProperty Name="SalesPriceP" ColumnName="SalesPriceP" />
-          <ScalarProperty Name="PurPrice" ColumnName="PurPrice" />
-          <ScalarProperty Name="Qty" ColumnName="Qty" />
-          <ScalarProperty Name="SCH" ColumnName="SCH" />
-          <ScalarProperty Name="PCS" ColumnName="PCS" />
-          <ScalarProperty Name="CTN" ColumnName="CTN" />
-          <ScalarProperty Name="ExpDT" ColumnName="ExpDT" />
-          <ScalarProperty Name="BNID" ColumnName="BNID" />
-          <ScalarProperty Name="IID" ColumnName="IID" />
-          <ScalarProperty Name="RID" ColumnName="RID" />
-          <ScalarProperty Name="SD_ID" ColumnName="SD_ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tbl_Company">
       <EntityTypeMapping TypeName="SaleManagerShahzaibModel.tbl_Company">
         <MappingFragment StoreEntitySet="tbl_Company">
@@ -2465,6 +2437,38 @@
           <ScalarProperty Name="RID2" ColumnName="RID2" />
           <ScalarProperty Name="CompID" ColumnName="CompID" />
           <ScalarProperty Name="RID" ColumnName="RID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales_D">
+      <EntityTypeMapping TypeName="SaleManagerShahzaibModel.Sales_D">
+        <MappingFragment StoreEntitySet="Sales_D">
+          <ScalarProperty Name="Pur_D_UnitID" ColumnName="Pur_D_UnitID" />
+          <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+          <ScalarProperty Name="RCancel" ColumnName="RCancel" />
+          <ScalarProperty Name="SRT" ColumnName="SRT" />
+          <ScalarProperty Name="PCK_Det" ColumnName="PCK_Det" />
+          <ScalarProperty Name="Amt" ColumnName="Amt" />
+          <ScalarProperty Name="Amt2" ColumnName="Amt2" />
+          <ScalarProperty Name="DisRs" ColumnName="DisRs" />
+          <ScalarProperty Name="DisAmt" ColumnName="DisAmt" />
+          <ScalarProperty Name="DisP" ColumnName="DisP" />
+          <ScalarProperty Name="PAmt" ColumnName="PAmt" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="AddAmt" ColumnName="AddAmt" />
+          <ScalarProperty Name="AddPer" ColumnName="AddPer" />
+          <ScalarProperty Name="SalesPriceP" ColumnName="SalesPriceP" />
+          <ScalarProperty Name="PurPrice" ColumnName="PurPrice" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="SCH" ColumnName="SCH" />
+          <ScalarProperty Name="PCS" ColumnName="PCS" />
+          <ScalarProperty Name="CTN" ColumnName="CTN" />
+          <ScalarProperty Name="ExpDT" ColumnName="ExpDT" />
+          <ScalarProperty Name="BNID" ColumnName="BNID" />
+          <ScalarProperty Name="IID" ColumnName="IID" />
+          <ScalarProperty Name="RID" ColumnName="RID" />
+          <ScalarProperty Name="SD_ID" ColumnName="SD_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

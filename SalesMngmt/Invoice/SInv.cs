@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
@@ -59,8 +60,8 @@ namespace SalesMngmt.Invoice
 
 
                 pictureBox1.Visible = false;
-                txtInvoiceCustom.Visible = false;
-                label38.Visible = false;
+                // txtInvoiceCustom.Visible = false;
+                // label38.Visible = false;
             }
 
 
@@ -93,6 +94,15 @@ namespace SalesMngmt.Invoice
         {
             //account headr
 
+            List<I_Unit> unitList = new List<I_Unit>
+        {
+            new I_Unit { IUnit = "PCS", unit_id = 1 },
+            new I_Unit { IUnit = "CTN", unit_id = 2 }
+        };
+
+            FillCombo(cmbxPackaging, unitList, "IUnit", "unit_id", 1);
+            cmbxPackaging.SelectedIndex = 0;
+
 
             List<COA_M> article = new List<COA_M>();
             article.Add(new COA_M { CAC_Code = 0, CATitle = "--SELECT--" });
@@ -113,6 +123,7 @@ namespace SalesMngmt.Invoice
             List<COA_M> saleRetail = new List<COA_M>();
             saleRetail.Add(new COA_M { CAC_Code = 1, CATitle = "Retail Price" });
             saleRetail.Add(new COA_M { CAC_Code = 2, CATitle = "WholeSale Price" });
+            saleRetail.Add(new COA_M { CAC_Code = 3, CATitle = "Distribution" });
             FillCombo(ddlWSR, saleRetail, "CATitle", "CAC_Code", 0);
 
             //parties
@@ -152,7 +163,7 @@ namespace SalesMngmt.Invoice
 
             lblRID.Text = "0";
 
-            if (compID == 1022)
+            if (compID == 1022 || compID == 1024)
             {
                 radioButton4.Checked = true;
 
@@ -160,13 +171,7 @@ namespace SalesMngmt.Invoice
                 cmbxAccID.SelectedIndex = 2;
             }
 
-            if (compID == 1024)
-            {
-                radioButton4.Checked = true;
 
-                cmbxWareHouse.SelectedIndex = 1;
-                cmbxAccID.SelectedIndex = 2;
-            }
 
             else
             {
@@ -324,10 +329,6 @@ namespace SalesMngmt.Invoice
             if (item != null)
             {
 
-
-
-
-
                 if (txtpcs.Text == "" || txtpcs.Text == "0")
                 {
                     txtpcs.Text = 0.ToString();
@@ -381,6 +382,7 @@ namespace SalesMngmt.Invoice
 
 
                 }
+
 
 
 
@@ -546,7 +548,7 @@ namespace SalesMngmt.Invoice
                         txtPcsRate.Text.DefaultZero(),
                         txtSaleRate.Text.DefaultZero(),
                         "Remove",
-                       "0", txtBatch.Text, txtExpDate.Text);
+                       "0", txtBatch.Text, txtExpDate.Text, cmbxPackaging.SelectedIndex);
 
                         invGrid_SelectionChanged(null, null);
                         clear(true);
@@ -566,7 +568,7 @@ namespace SalesMngmt.Invoice
                       txtNet.Text.DefaultZero(),
                       txtPcsRate.Text.DefaultZero(),
                       txtSaleRate.Text.DefaultZero(),
-                      "Remove", "0", txtBatch.Text, txtExpDate.Text);
+                      "Remove", "0", txtBatch.Text, txtExpDate.Text, cmbxPackaging.SelectedIndex);
 
 
                         invGrid_SelectionChanged(null, null);
@@ -780,7 +782,7 @@ namespace SalesMngmt.Invoice
 
 
 
-                        this.invGrid.Rows.Add(item.IID, itemName.IName, item.CTN, item.PCS, item.SalesPriceP, TotalPcs, item.DisP, item.DisRs, item.Amt, "", "", "Remove", itemName.ArticleNoID, item.BatchNo, item.ExpireDate);
+                        this.invGrid.Rows.Add(item.IID, itemName.IName, item.CTN, item.PCS, item.SalesPriceP, TotalPcs, item.DisP, item.DisRs, item.Amt, "", "", "Remove", itemName.ArticleNoID, item.BatchNo, item.ExpireDate,item.Pur_D_UnitID==null?0: item.Pur_D_UnitID);
                         invGrid_SelectionChanged(null, null);
                     }
                 }
@@ -880,6 +882,8 @@ namespace SalesMngmt.Invoice
                 txtDisc.Text = invGrid.Rows[e.RowIndex].Cells[7].Value.DefaultZero();
                 txtNet.Text = invGrid.Rows[e.RowIndex].Cells[8].Value.DefaultZero();
                 txtSaleP.Text = invGrid.Rows[e.RowIndex].Cells[9].Value.DefaultZero();
+                cmbxPackaging.SelectedIndex = Convert.ToInt32(invGrid.Rows[e.RowIndex].Cells["Unit"].Value ?? "0");
+
                 txtRate_Leave(null, null);
                 txtSaleP_Leave(null, null);
 
@@ -957,6 +961,8 @@ namespace SalesMngmt.Invoice
         {
             Accountvalidation();
 
+
+            #region check Validation
             if (invGrid.Rows.Count == 0)
             {
                 MessageBox.Show("Please Add Items In Grid", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -986,10 +992,19 @@ namespace SalesMngmt.Invoice
                 return;
 
             }
+
+
+            #endregion
+
+
             Sales_M sale = null;
+
+            #region Transaction Begin
             DbContextTransaction transaction = db.Database.BeginTransaction();
             try
             {
+                #region Sale Master Create And Edit
+
                 if (InvoiceNo == "0")
                 {
                     sale = new Sales_M();
@@ -1005,7 +1020,7 @@ namespace SalesMngmt.Invoice
                         sale.InvNo = access.GetScalar("Gen_NewInvNoSale", coa, con, trans);
                     }
 
-                    sale.InvNo = txtInvoiceCustom.Text;
+                    else { sale.InvNo = txtInvoiceCustom.Text; }
                     sale.InvDT = dtpInvoice.Value;
                     sale.ReferenceNo = txtReference.Text;
                     sale.EDate = dtpInvoice.Value;
@@ -1042,7 +1057,7 @@ namespace SalesMngmt.Invoice
                 {
                     db.Sales_M.Add(sale);
                 }
-                db.SaveChanges();
+           
                 if (InvoiceNo != "0")
                 {
                     db.Entry(sale).State = EntityState.Modified;
@@ -1050,6 +1065,10 @@ namespace SalesMngmt.Invoice
                     db.Itemledger.RemoveRange(db.Itemledger.Where(x => x.RID == sale.RID && x.CompanyID == compID && x.TypeCode == 5));
                     db.GL.RemoveRange(db.GL.Where(x => x.RID == sale.RID && x.CompID == compID && x.TypeCode == 5));
                 }
+                db.SaveChanges();
+                #endregion
+
+                #region Add And update Sale Details Row in multiple Table
 
                 foreach (DataGridViewRow row in invGrid.Rows)
                 {
@@ -1070,8 +1089,8 @@ namespace SalesMngmt.Invoice
                         detail.DisRs = (row.Cells[7].Value ?? "0").ToString();
                         detail.BatchNo = (row.Cells[13].Value ?? "").ToString();
                         detail.ExpireDate = (row.Cells[14].Value ?? "").ToString();
-
-                        double ctn;
+                        detail.Pur_D_UnitID = Convert.ToInt32((row.Cells["Unit"].Value ?? "0"));
+                        double ctn; 
                         if (Convert.ToInt32(item.CTN_PCK.DefaultZero()) == 0)
                         {
                             ctn = Convert.ToDouble(row.Cells[2].Value.DefaultZero());
@@ -1308,105 +1327,116 @@ namespace SalesMngmt.Invoice
                             db.GL.Add(gl1);
                             db.SaveChanges();
                         }
-                        if (txtDisfooter.Text != "0")
-                        {
-                            int customer = Convert.ToInt32(vebdorid);
-                            var Expense = db.COA_D.AsNoTracking().Where(x => x.AC_Title == "Total Sale Discount Expense" && x.CompanyID == compID && x.CAC_Code == 16).FirstOrDefault();
-                            var customerDetial = db.COA_D.AsNoTracking().Where(x => x.AC_Code == customer).FirstOrDefault();
-
-                            // var Income = db.COA_D.Where(x => x.AC_Title == "Purchase Total Discount Income" && x.CompanyID == compID && x.CAC_Code == 14).FirstOrDefault();
-
-                            if (Expense == null)
-                            {
-
-
-
-
-
-
-                                COA_D coaD = new COA_D();
-                                coaD.CAC_Code = 16;
-                                coaD.PType_ID = 1;
-                                coaD.ZID = 0;
-                                coaD.AC_Code = (int)db.GetAc_Code(16).FirstOrDefault();
-                                coaD.AC_Title = "Total Sale Discount Expense";
-                                coaD.DR = 0;
-                                coaD.CR = 0;
-                                coaD.Qty = 0;
-                                coaD.CompanyID = compID;
-                                coaD.InActive = false;
-                                db.COA_D.Add(coaD);
-                                db.SaveChanges();
-
-
-
-                                Expense = db.COA_D.AsNoTracking().Where(x => x.AC_Title == "Total Sale Discount Expense" && x.CompanyID == compID && x.CAC_Code == 16).FirstOrDefault();
-
-                            }
-
-
-                            GL gl = new GL();
-                            gl.RID = sale.RID;
-                            gl.SID = (int)cmbxSaleMan.SelectedValue;
-                            gl.TypeCode = 5;
-                            if (InvoiceNo == "0")
-                            {
-                                gl.GLDate = dtpInvoice.Value;
-                            }
-
-                            else
-                            {
-
-                                gl.GLDate = dtpInvoice.Value;
-                            }
-                            //  gl.IPrice = Convert.ToDouble(row.Cells[4].Value.DefaultZero());
-                            gl.AC_Code = Expense.AC_Code;
-                            gl.AC_Code2 = Convert.ToInt32(vebdorid);
-                            gl.Narration = customerDetial.AC_Title;
-                            //  gl.MOP_ID = 2;
-                            // gl.Qty_Out = (item.CTN_PCK ?? 0 * Convert.ToInt32(row.Cells[2].Value)) + Convert.ToInt32(row.Cells[3].Value);
-                            // gl.PAmt = Convert.ToDouble(row.Cells[5].Value.DefaultZero());
-                            //  gl.DisP = Convert.ToDouble(row.Cells[6].Value ?? "0");
-                            //  gl.DisRs = Convert.ToDouble((row.Cells[7].Value ?? "0"));
-                            gl.DisAmt = 0;
-                            gl.Debit = Convert.ToDouble(txtDisfooter.Text);
-                            gl.Credit = 0;
-                            gl.CompID = compID;
-                            db.GL.Add(gl);
-                            db.SaveChanges();
-
-                            GL gl1 = new GL();
-                            gl1.RID = sale.RID;
-                            gl1.TypeCode = 5;
-                            gl1.SID = (int)cmbxSaleMan.SelectedValue;
-
-                            if (InvoiceNo == "0")
-                            {
-                                gl1.GLDate = dtpInvoice.Value;
-                            }
-
-                            else { gl1.GLDate = dtpInvoice.Value; }
-                            gl1.IPrice = Convert.ToDouble(row.Cells[4].Value.DefaultZero());
-                            gl1.AC_Code = Convert.ToInt32(vebdorid);
-                            gl1.AC_Code2 = Expense.AC_Code;
-                            gl1.Narration = Expense.AC_Title;
-                            //  gl.MOP_ID = 2;
-                            // gl1.Qty_Out = (item.CTN_PCK ?? 0 * Convert.ToInt32(row.Cells[2].Value)) + Convert.ToInt32(row.Cells[3].Value);
-                            //gl1.PAmt = Convert.ToDouble(row.Cells[5].Value.DefaultZero());
-                            //gl1.DisP = Convert.ToDouble(row.Cells[6].Value ?? "0");
-                            //gl1.DisRs = Convert.ToDouble((row.Cells[7].Value ?? "0"));
-                            //gl1.DisAmt = Convert.ToDouble(Convert.ToDouble(row.Cells[6].Value.DefaultZero()) / 100 * Convert.ToDouble(row.Cells[5].Value.DefaultZero()));//Convert.ToDouble(txtSaleRate.Text);
-                            gl1.Debit = 0;
-                            gl1.Credit = Convert.ToDouble(txtDisfooter.Text);
-                            gl1.CompID = compID;
-                            db.GL.Add(gl1);
-                            db.SaveChanges();
-                        }
+                     
                     }
                 }
-                //receipt
-                receiptManagement(sale.RID);
 
+                #endregion
+
+
+                #region Total Discount  
+
+                if (txtDisfooter.Text != "0" && txtDisfooter.Text != "")
+                {
+                    int customer = Convert.ToInt32(vebdorid);
+                    var Expense = db.COA_D.AsNoTracking().Where(x => x.AC_Title == "Total Sale Discount Expense" && x.CompanyID == compID && x.CAC_Code == 16).FirstOrDefault();
+                    var customerDetial = db.COA_D.AsNoTracking().Where(x => x.AC_Code == customer).FirstOrDefault();
+
+                    // var Income = db.COA_D.Where(x => x.AC_Title == "Purchase Total Discount Income" && x.CompanyID == compID && x.CAC_Code == 14).FirstOrDefault();
+
+                    if (Expense == null)
+                    {
+
+
+
+
+
+
+                        COA_D coaD = new COA_D();
+                        coaD.CAC_Code = 16;
+                        coaD.PType_ID = 1;
+                        coaD.ZID = 0;
+                        coaD.AC_Code = (int)db.GetAc_Code(16).FirstOrDefault();
+                        coaD.AC_Title = "Total Sale Discount Expense";
+                        coaD.DR = 0;
+                        coaD.CR = 0;
+                        coaD.Qty = 0;
+                        coaD.CompanyID = compID;
+                        coaD.InActive = false;
+                        db.COA_D.Add(coaD);
+                        db.SaveChanges();
+
+
+
+                        Expense = db.COA_D.AsNoTracking().Where(x => x.AC_Title == "Total Sale Discount Expense" && x.CompanyID == compID && x.CAC_Code == 16).FirstOrDefault();
+
+                    }
+
+                    else
+                    {
+                        GL gl = new GL();
+                        gl.RID = sale.RID;
+                        gl.SID = (int)cmbxSaleMan.SelectedValue;
+                        gl.TypeCode = 5;
+                        if (InvoiceNo == "0")
+                        {
+                            gl.GLDate = dtpInvoice.Value;
+                        }
+
+                        else
+                        {
+
+                            gl.GLDate = dtpInvoice.Value;
+                        }
+                        //  gl.IPrice = Convert.ToDouble(row.Cells[4].Value.DefaultZero());
+                        gl.AC_Code = Expense.AC_Code;
+                        gl.AC_Code2 = Convert.ToInt32(vebdorid);
+                        gl.Narration = customerDetial.AC_Title;
+                        //  gl.MOP_ID = 2;
+                        // gl.Qty_Out = (item.CTN_PCK ?? 0 * Convert.ToInt32(row.Cells[2].Value)) + Convert.ToInt32(row.Cells[3].Value);
+                        // gl.PAmt = Convert.ToDouble(row.Cells[5].Value.DefaultZero());
+                        //  gl.DisP = Convert.ToDouble(row.Cells[6].Value ?? "0");
+                        //  gl.DisRs = Convert.ToDouble((row.Cells[7].Value ?? "0"));
+                        gl.DisAmt = 0;
+                        gl.Debit = Convert.ToDouble(txtDisfooter.Text);
+                        gl.Credit = 0;
+                        gl.CompID = compID;
+                        db.GL.Add(gl);
+                        db.SaveChanges();
+
+                        GL gl1 = new GL();
+                        gl1.RID = sale.RID;
+                        gl1.TypeCode = 5;
+                        gl1.SID = (int)cmbxSaleMan.SelectedValue;
+
+                        if (InvoiceNo == "0")
+                        {
+                            gl1.GLDate = dtpInvoice.Value;
+                        }
+
+                        else { gl1.GLDate = dtpInvoice.Value; }
+                        //   gl1.IPrice = Convert.ToDouble(row.Cells[4].Value.DefaultZero());
+                        gl1.AC_Code = Convert.ToInt32(vebdorid);
+                        gl1.AC_Code2 = Expense.AC_Code;
+                        gl1.Narration = Expense.AC_Title;
+                        //  gl.MOP_ID = 2;
+                        // gl1.Qty_Out = (item.CTN_PCK ?? 0 * Convert.ToInt32(row.Cells[2].Value)) + Convert.ToInt32(row.Cells[3].Value);
+                        //gl1.PAmt = Convert.ToDouble(row.Cells[5].Value.DefaultZero());
+                        //gl1.DisP = Convert.ToDouble(row.Cells[6].Value ?? "0");
+                        //gl1.DisRs = Convert.ToDouble((row.Cells[7].Value ?? "0"));
+                        //gl1.DisAmt = Convert.ToDouble(Convert.ToDouble(row.Cells[6].Value.DefaultZero()) / 100 * Convert.ToDouble(row.Cells[5].Value.DefaultZero()));//Convert.ToDouble(txtSaleRate.Text);
+                        gl1.Debit = 0;
+                        gl1.Credit = Convert.ToDouble(txtDisfooter.Text);
+                        gl1.CompID = compID;
+                        db.GL.Add(gl1);
+                        db.SaveChanges();
+                    }
+                }
+
+                #endregion
+                #region Recipe
+                receiptManagement(sale.RID);
+                #endregion
 
                 var order = db.Sales_M.AsNoTracking().Where(x => x.RID == sale.RID).FirstOrDefault();
                 var list = db.Sales_D.AsNoTracking().Where(x => x.RID == sale.RID).ToList();
@@ -1634,11 +1664,7 @@ namespace SalesMngmt.Invoice
 
 
                         }
-                        //orders.Client = db.COA_D.Where(x => x.AC_Code == order.AC_Code).FirstOrDefault().AC_Title;
-                        // DateTime dt = DateTime.ParseExact(order.EDate.ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
-
-                        //   string s = order.EDate.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
-                        //   string s=     order.EDate.to().to;
+              
 
 
 
@@ -1864,6 +1890,7 @@ namespace SalesMngmt.Invoice
 
                 }
                 transaction.Commit();
+                #endregion
 
                 //  UpdateItemRate();
 
@@ -1874,75 +1901,7 @@ namespace SalesMngmt.Invoice
                 cmbxPaymentMode.SelectedIndex = 0;
                 // account balance
                 var dsa = Convert.ToInt32(cmbxAccID.SelectedIndex);
-                //if (dsa >= 1)
-                //{
-                //    int value = Convert.ToInt32(cmbxAccID.SelectedValue);
-                //    var vendor = db.COA_D.AsNoTracking().Where(x => x.CAC_Code == value && x.CompanyID == compID && x.InActive == false).ToList();
-                //    FillCombo(cmbxvendor, vendor, "AC_Title", "AC_Code", 0);
 
-                //    int account = (int)cmbxAccID.SelectedValue;
-                //    if (account == 1)
-                //    {
-                //        lblGrandTotal.Text = "0";
-
-                //    }
-                //    else
-                //    {
-
-
-                //        lblGrandTotal.Text = (Convert.ToDouble(lblAccountBalance.Text.DefaultZero()) + Convert.ToDouble(txtNetAm.Text.DefaultZero())).ToString();
-                //    }
-
-
-                //    if (value == 3)
-                //    {
-
-                //        int Vendorcode = Convert.ToInt32(cmbxvendor.SelectedValue);
-                //        vebdorid = Convert.ToInt32(cmbxvendor.SelectedValue);
-                //        var previosBalance = ReportsController.getCustomerPreviousBalance(DateTime.Today.AddDays(1), Vendorcode);
-                //        int a = 1;
-
-                //        double credit = (double)previosBalance.Rows[0]["credit"];
-                //        double debit = (double)previosBalance.Rows[0]["debit"];
-                //        double balance = debit - credit;
-
-                //        lblAccountBalance.Text = balance.ToString();
-
-
-                //    }
-
-
-                //    if (value == 9)
-                //    {
-                //        int Vendorcode = Convert.ToInt32(cmbxvendor.SelectedValue);
-                //        vebdorid = Convert.ToInt32(cmbxvendor.SelectedValue);
-                //        var previosBalance = ReportsController.getCustomerPreviousBalance(DateTime.Today.AddDays(1), Vendorcode);
-                //        int a = 1;
-
-                //        double credit = (double)previosBalance.Rows[0]["credit"];
-                //        double debit = (double)previosBalance.Rows[0]["debit"];
-                //        double balance = credit - debit;
-
-                //        lblAccountBalance.Text = balance.ToString();
-
-                //    }
-
-
-                //}
-                //else if (dsa == 0)
-                //{
-
-                //    //   int value = Convert.ToInt32(cmbxAccID.SelectedValue);
-                //    //var vendor = db.COA_D.Where(x => x.CAC_Code == 1 && x.CompanyID == compID && x.InActive == false).ToList();
-                //    //FillCombo(cmbxvendor, vendor, "AC_Title", "CAC_Code", 0);
-
-                //    List<COA_D> parties = new List<COA_D>();
-                //    parties.Add(new COA_D { AC_Code = 0, AC_Title = "--Select--" });
-                //    FillCombo(cmbxvendor, parties, "AC_Title", "AC_Code", 0);
-                //    FillCombo(cmbxvendor, parties, "AC_Title", "AC_Code", 0);
-                //    FillCombo(cmbxvendor, parties, "AC_Title", "AC_Code", 0);
-
-                //}
                 MessageBox.Show("Invoice Save Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -2004,6 +1963,8 @@ namespace SalesMngmt.Invoice
                 transaction.Rollback();
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
         }
 
         private void UpdateItemRate()
@@ -2375,19 +2336,19 @@ namespace SalesMngmt.Invoice
                     //        label34.Text = "0";
                     //    }
                     //    label34.Text = (Convert.ToInt32(label34.Text.DefaultZero()) + 1).ToString();
-                    if (compID == 1024)
-                    {
-                        txtctn.Text = "1";
-                    }
-                    else
-                    {
-                        txtpcs.Text = "1";
-                    }
+                    //if (compID == 1024)
+                    //{
+                    //    txtctn.Text = "1";
+                    //}
+                    //else
+                    //{
+                    //    txtpcs.Text = "1";
+                    //}
 
-                    txtRate.Text = items.SalesPrice.ToString();
-                    txtDisc.Text = items.DisR.DefaultZero().ToString();
-                    txtDisPer.Text = items.DisP.DefaultZero().ToString();
-                    cmbxItems.Text = items.IName.ToString();
+                    //txtRate.Text = items.SalesPrice.ToString();
+                    //txtDisc.Text = items.DisR.DefaultZero().ToString();
+                    //txtDisPer.Text = items.DisP.DefaultZero().ToString();
+                    //cmbxItems.Text = items.IName.ToString();
                     ItemID();
                     //  label35.Text = items.IID.ToString();
                     lblItemID.Text = items.IID.ToString();
@@ -3141,7 +3102,23 @@ namespace SalesMngmt.Invoice
                 if (txtRate.Text == "" || txtRate.Text == "0")
                 {
 
-                    txtRate.Text = item.SalesPrice.DefaultZero();
+
+                    if (ddlWSR.SelectedValue.ToString() == "1")
+                    {
+                        txtRate.Text = item.SalesPrice.DefaultZero();
+                    }
+                    if (ddlWSR.SelectedValue.ToString() == "2") {
+                        txtRate.Text = item.WholeSale.DefaultZero();
+                    }
+
+                    if (ddlWSR.SelectedValue.ToString() == "3")
+                    {
+                        txtRate.Text = item.RetailPOne.DefaultZero();
+                    }
+
+                 
+
+
                 }
                 if (txtDisc.Text == "" || txtDisc.Text == "0")
                 {
@@ -3172,28 +3149,94 @@ namespace SalesMngmt.Invoice
                 {
                     ctn = Convert.ToDouble(txtctn.Text.DefaultZero());
                 }
-                var ctnValue = (Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(ctn));
 
-                var pcs = (Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(txtpcs.Text.DefaultZero()));
+                if (cmbxPackaging.SelectedIndex == 0)
+                {
+                    var ctnValue = (Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(ctn));
 
-                txtNet.Text = (ctnValue + pcs).ToString();
+                    var pcs = (Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(txtpcs.Text.DefaultZero()));
 
-                txtSaleP.Text = (ctnValue + pcs).ToString();
+                    txtNet.Text = (ctnValue + pcs).ToString();
 
-                var DiscPercValue = Convert.ToDouble(Convert.ToDouble(txtDisPer.Text.DefaultZero()) / 100 * Convert.ToDouble(txtNet.Text.DefaultZero()));
+                    txtSaleP.Text = (ctnValue + pcs).ToString();
 
-                var DiscValue = Convert.ToDouble(txtDisc.Text.DefaultZero());
+                    var DiscPercValue = Convert.ToDouble(Convert.ToDouble(txtDisPer.Text.DefaultZero()) / 100 * Convert.ToDouble(txtNet.Text.DefaultZero()));
+
+                    var DiscValue = Convert.ToDouble(txtDisc.Text.DefaultZero());
 
 
-                txtNet.Text = (Convert.ToDouble(txtSaleP.Text.DefaultZero()) - (DiscPercValue + DiscValue)).ToString();
+                    txtNet.Text = (Convert.ToDouble(txtSaleP.Text.DefaultZero()) - (DiscPercValue + DiscValue)).ToString();
 
-                // txtSaleP.Text = (Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(txtpcs.Text.DefaultZero())).ToString();
+                    // txtSaleP.Text = (Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(txtpcs.Text.DefaultZero())).ToString();
 
-                txtPcsRate.Text = (Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(item.CTN_PCK.DefaultZero())).ToString();
+                    txtPcsRate.Text = (Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(item.CTN_PCK.DefaultZero())).ToString();
 
-                txtSaleRate.Text = (Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(1)).ToString();
+                    txtSaleRate.Text = (Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(1)).ToString();
 
-                lblGrandTotal.Text = (Convert.ToDouble(lblAccountBalance.Text.DefaultZero()) + Convert.ToDouble(txtNetAm.Text.DefaultZero())).ToString();
+                    lblGrandTotal.Text = (Convert.ToDouble(lblAccountBalance.Text.DefaultZero()) + Convert.ToDouble(txtNetAm.Text.DefaultZero())).ToString();
+
+
+
+                }
+
+                else
+                {
+
+                    var ctnValue = (Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(txtctn.Text.DefaultZero()));
+
+                    var pcs = (Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(txtpcs.Text.DefaultZero()));
+                    if (txtpcs.Text == "" || txtpcs.Text == "0")
+                    {
+
+
+                    }
+
+                    else
+                    {
+
+                        if (item.CTN_PCK == 0 || item.CTN_PCK == null)
+                        {
+                            pcs = (Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(txtpcs.Text.DefaultZero()));
+
+
+
+                        }
+                        else
+                        {
+                            var total = (Convert.ToDouble(txtRate.Text.DefaultZero()) / Convert.ToDouble(item.CTN_PCK.DefaultZero()));
+                            pcs = ((total) * Convert.ToDouble(txtpcs.Text.DefaultZero()));
+
+                        }
+
+
+                    }
+
+
+                    txtNet.Text = (ctnValue + pcs).ToString();
+
+                    // txtNet.Text = txtRate.Text;
+                    //  txtSaleP.Text = (ctnValue + pcs).ToString();
+
+                    var DiscPercValue = Convert.ToDouble(Convert.ToDouble(txtDisPer.Text.DefaultZero()) / 100 * Convert.ToDouble(txtNet.Text.DefaultZero()));
+
+                    var DiscValue = Convert.ToDouble(txtDisc.Text.DefaultZero());
+
+
+                    txtNet.Text = (Convert.ToDouble(txtNet.Text.DefaultZero()) - (DiscPercValue + DiscValue)).ToString();
+
+                    //    txtSaleP.Text = (Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble((ctn + Convert.ToDouble(txtpcs.Text.DefaultZero())))).ToString();
+
+
+
+                    txtPcsRate.Text = (Convert.ToDouble(txtNet.Text.DefaultZero()) / (ctn + Convert.ToDouble(txtpcs.Text.DefaultZero()))).ToString();
+
+                    txtSaleRate.Text = (Convert.ToDouble(txtSaleP.Text.DefaultZero())).ToString(); /*/ (ctn + Convert.ToDouble(txtpcs.Text.DefaultZero()))).ToString();*/
+
+                    lblGrandTotal.Text = (Convert.ToDouble(lblAccountBalance.Text.DefaultZero()) + Convert.ToDouble(txtNetAm.Text.DefaultZero())).ToString();
+
+
+
+                }
             }
         }
 
@@ -3312,17 +3355,9 @@ namespace SalesMngmt.Invoice
             txtSaleP.Text = dataGridViewRow.Cells[9].Value.DefaultZero();
         }
 
-        private void metroButton7_Click(object sender, EventArgs e)
-        {
-            Products prod = new Products(compID);
-            prod.Show();
-            prod.openForm();
-        }
+    
 
-        private void metroButton6_Click(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void Items_Leave(Lib.Entity.Items item, MetroFramework.Controls.MetroTextBox txtbox = null)
         {
@@ -3350,6 +3385,10 @@ namespace SalesMngmt.Invoice
                     {
                         txtRate.Text = item.SalesPrice.DefaultZero();
                     }
+                    else if (ddlWSR.SelectedValue.ToString() == "3") {
+                        txtRate.Text = item.RetailPOne.DefaultZero();
+
+                    }
                     else
                     {
                         txtRate.Text = item.WholeSale.DefaultZero();
@@ -3357,15 +3396,15 @@ namespace SalesMngmt.Invoice
 
                     txtDisc.Text = item.DisR.DefaultZero();
                     txtDisPer.Text = item.DisP.DefaultZero();
-                    if (compID == 1024)
-                    {
-                        txtctn.Text = 1.ToString();
-                    }
-                    else
-                    {
-                        txtpcs.Text = 1.ToString();
+                    //if (compID == 1024)
+                    //{
+                    //    txtctn.Text = 1.ToString();
+                    //}
+                    //else
+                    //{
+                    //    txtpcs.Text = 1.ToString();
 
-                    }
+                    //}
 
 
 
@@ -3386,6 +3425,22 @@ namespace SalesMngmt.Invoice
                     txtPcsRate.Text = String.Format("{0:0.00}", Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(item.CTN_PCK.DefaultZero()));
                     txtSaleRate.Text = String.Format("{0:0.00}", Convert.ToDouble(txtRate.Text.DefaultZero()) * Convert.ToDouble(1));
 
+                    if (item.Unit_ID == null)
+                    {
+
+                        cmbxPackaging.SelectedIndex = 0;
+                    }
+                    else if (item.Unit_ID == 1)
+                    {
+
+                        cmbxPackaging.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        cmbxPackaging.SelectedIndex = 1;
+                    }
+
+
                     if (Convert.ToInt32(cmbxAccID.SelectedValue) == 3 || Convert.ToInt32(cmbxAccID.SelectedValue) == 9)
                     {
                         int Code = Convert.ToInt32(cmbxvendor.SelectedValue);
@@ -3405,16 +3460,16 @@ namespace SalesMngmt.Invoice
                             lblPreviousPrice.Text = Convert.ToDouble(amt / quantity).ToString();
                         }
                     }
-                    if (compID == 1024)
-                    {
-                        txtctn.Focus();
+                    //if (compID == 1024)
+                    //{
+                    //    txtctn.Focus();
 
-                    }
-                    else
-                    {
-                        txtpcs.Focus();
-                    }
-
+                    //}
+                    //else
+                    //{
+                    //    txtpcs.Focus();
+                    //}
+                    txtctn.Focus();
                     txtbox = null;
                 }
                 catch (Exception ex)
@@ -3533,12 +3588,7 @@ namespace SalesMngmt.Invoice
             }
         }
 
-        private void btnAddCustomer_Click(object sender, EventArgs e)
-        {
-            Configs.Customer cus = new Configs.Customer(compID);
-            cus.Show();
-            cus.customerAdd();
-        }
+       
 
         public void customerLedger()
         {
@@ -3716,7 +3766,7 @@ namespace SalesMngmt.Invoice
                 return;
             }
             string Query = @"SELECT TOP 10 Items.IID , 
-                            ISNULL(ArticleNo, '0') as Article, 
+                            ISNULL(Article.ArticleNo, '0') as Article, 
                             Items.IName as Product,ISNULL(SalesPrice,0) as Price ,
                             ISNULL(Color, 0) as Color,
                             ISNULL(Size, 0) as Size,
@@ -3725,7 +3775,7 @@ namespace SalesMngmt.Invoice
                             ISNULL(Items.Cabinet , '') as Cabinet ,
                             ISNULL(vw.total,0) as Stock                 
                             FROM Items
-                            left join Article on Items.IID = Article.ProductID
+                            left join Article on Items.ArticleNoID = Article.ProductID
                             left join Colors on Items.Color = Colors.ColorID
                             left join Sizes on Items.Size = Sizes.SizeID
                             left join getWarehouseStocks_vw vw on vw.IID = Items.IID AND vw.CompanyID = @company AND vw.WID = @warehouseId
@@ -3762,6 +3812,7 @@ namespace SalesMngmt.Invoice
                 this.dataGridView1.Width = 1000;
                 panel1.Height = 300;
                 panel1.Width = 1000;
+
             }
             else
             {
@@ -3868,45 +3919,54 @@ namespace SalesMngmt.Invoice
             {
                 int accode = Convert.ToInt32(check[0].AC_Code);
                 var customer = db.COA_D.AsNoTracking().Where(x => x.AC_Code == accode).FirstOrDefault();
+                cmbxAccID.SelectedValue = Convert.ToInt32(customer.CAC_Code);
 
+                cmbxvendor.SelectedValue = Convert.ToInt32(accode);
                 // account headr
-                List<COA_M> article = new List<COA_M>();
-                article.Add(new COA_M { CAC_Code = 0, CATitle = "--SELECT--" });
-                //   article.AddRange(db.COA_M.AsNoTracking().Where(x => x.CAC_Code == customer.CAC_Code));
+                //List<COA_M> article = new List<COA_M>();
+                //article.Add(new COA_M { CAC_Code = 0, CATitle = "--SELECT--" });
+                ////   article.AddRange(db.COA_M.AsNoTracking().Where(x => x.CAC_Code == customer.CAC_Code));
 
-                FillCombo(cmbxAccID, article, "CATitle", "CAC_Code", 0);
+                //FillCombo(cmbxAccID, article, "CATitle", "CAC_Code", 0);
 
 
-                List<Lib.Entity.Customers> parties = new List<Lib.Entity.Customers>();
-                parties.Add(new Lib.Entity.Customers { AC_Code = 0, CusName = "--Select--" });
-                parties.AddRange(db.Customers.AsNoTracking().Where(x => x.Cell == txtContactNo.Text && x.CompanyID == compID).ToList());
-                //   var vendor = ;
-                FillCombo(cmbxvendor, parties, "CusName", "AC_Code", 0);
+                //List<Lib.Entity.Customers> parties = new List<Lib.Entity.Customers>();
+                //parties.Add(new Lib.Entity.Customers { AC_Code = 0, CusName = "--Select--" });
+                //parties.AddRange(db.Customers.AsNoTracking().Where(x => x.Cell == txtContactNo.Text && x.CompanyID == compID).ToList());
+                ////   var vendor = ;
+                //FillCombo(cmbxvendor, parties, "CusName", "AC_Code", 0);
 
-                //parties 
 
-                //var employee = new List<Customer>();
-                //employee.Add(new Customer { CusName = "Select", AC_Code = 0 });
-                //employee.AddRange(db.Customers.Where(x => x.Cell == txtNumber.Text).ToList());
-                //FillCombo(cmbxPatient, employee, "CusName", "AC_Code", 0);
             }
         }
 
         private void ddlWSR_SelectedIndexChanged(object sender, EventArgs e)
         {
             int itemID = Convert.ToInt32(lblItemID.Text);
-            var obj = listItems.Where(x => x.IID == itemID).FirstOrDefault();
+
+
+                var obj = listItems.Where(x => x.IID == itemID).FirstOrDefault();
             if (ddlWSR.SelectedValue.ToString() == "2")
             {
                 label4.Text = "Whole Sale";
                 label12.Text = "WholeSale Price";
+            }
+            else if (ddlWSR.SelectedValue.ToString() == "3") {
+                label4.Text = "Distribution";
+                label12.Text = "Distribution Price";
+
             }
             else
             {
                 label12.Text = "Sale Price";
                 label4.Text = "Retail Rate";
             }
-            Items_Leave(obj, null);
+
+                if (obj != null)
+                {
+                    Items_Leave(obj, null);
+                }
+            
         }
 
         private void Accountvalidation()
@@ -4482,13 +4542,6 @@ namespace SalesMngmt.Invoice
 
         }
 
-        private void cmbxvendor_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-
-
-
-        }
 
         private void txtCode_Click(object sender, EventArgs e)
         {
@@ -4538,6 +4591,16 @@ namespace SalesMngmt.Invoice
 
 
 
+        }
+
+        private void cmbxWareHouse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbxPackaging_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            calculation();
         }
     }
     public class Items

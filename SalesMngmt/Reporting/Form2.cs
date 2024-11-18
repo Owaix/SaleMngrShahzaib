@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace DIagnoseMgmt
@@ -64,6 +65,8 @@ namespace DIagnoseMgmt
              if (List != null)
             {
 
+                List.AddRange(List);
+                List.AddRange(List);
 
                 ReportDataSource ds = new ReportDataSource("Ds", List);
 

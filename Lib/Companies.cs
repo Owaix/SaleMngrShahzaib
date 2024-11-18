@@ -18,6 +18,8 @@ namespace Lib
         public Companies()
         {
             CompaniesList = new List<CompaniesModel>();
+
+           
             CompaniesList.Add(new CompaniesModel { CompanyID = 101, CompanyTitle = "IceSmoke", CompanyAddress = "Shop#A-29,Sahara Arcade,main boulevard,Bahria enclave, Islamabad", CompanyPhone = "0317-0000623" });
             CompaniesList.Add(new CompaniesModel { CompanyID = 1012, CompanyTitle = "DSADsl kdlsa", CompanyAddress = "Shop#A-29,Sahara Arcade,main boulevard,Bahria enclave, Islamabad", CompanyPhone = "0317-0000623" });
             CompaniesList.Add(new CompaniesModel { CompanyID = 1013, CompanyTitle = "   Elegance Pharmacy               Medical Store", CompanyAddress = "65B Block-A Latifabad no 6 ,hyderabad ContactNo :03180303078 , 03111995559", CompanyPhone = "0317-0000623" });
@@ -32,7 +34,16 @@ namespace Lib
 
             CompaniesList.Add(new CompaniesModel { CompanyID = 1022, CompanyTitle = "ZR ELECTRONICS", CompanyAddress = "Shop # 42,43 Ground Floor, Digital center,Rahat Cinema Road,Hyd ", CompanyPhone = "0222-784362 0311-2426987 0300-9379180 0333-2637260" });
             CompaniesList.Add(new CompaniesModel { CompanyID = 1023, CompanyTitle = "Mon-o-salwa", CompanyAddress = "Shop # 13,3 chicken market latifabad # 7 Hyd ", CompanyPhone = "0313-3106722" });
-            CompaniesList.Add(new CompaniesModel { CompanyID = 1024, CompanyTitle = "SHAH NOOR TRADERS", CompanyAddress = "commericial Area Near shah Latif Dairy Unit # 7 Latifabad Hyderabad ", CompanyPhone = "0314-4031426 0346-2718764" });
+           
+            //Start
+            CompaniesList.Add(new CompaniesModel { CompanyID = 1024, CompanyTitle = "Ibrahim Abbaseen Autos", CompanyAddress = "Shop no F/960 khokar mohalla Gari khata Hyderabad ", CompanyPhone = "M.suhaib # 03332697889" });
+            CompaniesList.Add(new CompaniesModel { CompanyID = 1027, CompanyTitle = "IMRAN AUTOS", CompanyAddress = "Station Road Gari khata hyderabad", CompanyPhone = "03193028155 03332887655" });
+            CompaniesList.Add(new CompaniesModel { CompanyID = 1028, CompanyTitle = "DASTAGIR PAINT HOUSE", CompanyAddress = "Shop No 1 Qazi Zaheer Height Near Muhammadi Masjid Unit No 10 Latifabad,Hyderabad", CompanyPhone = "03163878829" });
+
+
+            //CompaniesList.Add(new CompaniesModel { CompanyID = 1024, CompanyTitle = "SHAH NOOR TRADERS", CompanyAddress = "commericial Area Near shah Latif Dairy Unit # 7 Latifabad Hyderabad ", CompanyPhone = "0314-4031426 0346-2718764" });
+            //CompaniesList.Add(new CompaniesModel { CompanyID = 1025, CompanyTitle = "SHAH NOOR TRADERS", CompanyAddress = "commericial Area Near shah Latif Dairy Unit # 7 Latifabad Hyderabad ", CompanyPhone = "0314-4031426 0346-2718764" });
+            //CompaniesList.Add(new CompaniesModel { CompanyID = 1026, CompanyTitle = "SHAH NOOR TRADERS", CompanyAddress = "commericial Area Near shah Latif Dairy Unit # 7 Latifabad Hyderabad ", CompanyPhone = "0314-4031426 0346-2718764" });
 
 
         }

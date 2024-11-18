@@ -1,6 +1,9 @@
-﻿using SalesMngmt.Reporting;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using Lib.Model;
+using SalesMngmt.Configs;
+using SalesMngmt.Invoice;
+using SalesMngmt.Reporting;
 
 namespace SalesMngmt
 {
@@ -14,7 +17,11 @@ namespace SalesMngmt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Signin());
+          Application.Run(new Signin() );
+           // Application.Run(new Form1());
+
+           // Application.Run(new Bike_Sale_Purchase());
+
         }
     }
 }

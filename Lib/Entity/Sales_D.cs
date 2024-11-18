@@ -39,5 +39,6 @@ namespace Lib.Entity
         public Nullable<double> RCancel { get; set; }
         public string ExpireDate { get; set; }
         public string BatchNo { get; set; }
+        public Nullable<int> Pur_D_UnitID { get; set; }
     }
 }

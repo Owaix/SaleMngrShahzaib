@@ -29,7 +29,7 @@ namespace SalesMngmt.Reporting
         int AcCode = 0;
         double Amt = 0;
         DateTime dt = DateTime.Now;
-        int ChkNO =0;
+        int ChkNO = 0;
         int Narr = 0;
         int CustomerCode = 0;
 
@@ -54,15 +54,15 @@ namespace SalesMngmt.Reporting
             //con.Open();
             //SqlTransaction trans = con.BeginTransaction();
             //var objcat = access.Get<cat>("Sp_cat_Select", type, con, trans);
-            var customerCount = db.Customers.Where(x => x.CompanyID == compID && x.InActive==false).FirstOrDefault();
-            var AccountCount = db.COA_D.Where(x => x.CAC_Code == 1 && x.CompanyID==compID && x.InActive == false).FirstOrDefault();
-           
+            var customerCount = db.Customers.Where(x => x.CompanyID == compID && x.InActive == false).FirstOrDefault();
+            var AccountCount = db.COA_D.Where(x => x.CAC_Code == 1 && x.CompanyID == compID && x.InActive == false).FirstOrDefault();
+
 
             pnlMain.Hide();
-           // var MyNewDateValue = DateTime.Today.AddDays(-10);
-         
+            // var MyNewDateValue = DateTime.Today.AddDays(-10);
+
         }
-        public void FillCombo(ComboBox comboBox, object obj, String Name, String ID, int selected )
+        public void FillCombo(ComboBox comboBox, object obj, String Name, String ID, int selected)
         {
             comboBox.DataSource = obj;
             comboBox.DisplayMember = Name; // Column Name
@@ -75,7 +75,7 @@ namespace SalesMngmt.Reporting
             clear();
             pnlMain.Show();
             GetDocCode();
-           // txtChkNo.Focus();
+            // txtChkNo.Focus();
             label3.Text = "ADD";
             obj = 0;
         }
@@ -126,9 +126,9 @@ namespace SalesMngmt.Reporting
             if (obj == 0)
             {
                 dataGridView1.Rows.Clear();
-              
+
             }
-           
+
         }
 
         //public void alluser(string username)
@@ -138,7 +138,7 @@ namespace SalesMngmt.Reporting
 
         public void clear()
         {
-          
+
 
 
 
@@ -146,7 +146,7 @@ namespace SalesMngmt.Reporting
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-          }
+        }
         private void catDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             CategorysDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -180,12 +180,13 @@ namespace SalesMngmt.Reporting
         private void CategorysDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var abc = Convert.ToInt32(CategorysDataGridView.Rows[e.RowIndex].Cells[0].Value);
-            if (e.ColumnIndex == 8) {
+            if (e.ColumnIndex == 8)
+            {
                 DialogResult dialogResult = MessageBox.Show("Are you sure To Delete", "Delete", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     db.Sales_D.RemoveRange(db.Sales_D.Where(x => x.RID == abc));
-                    db.Itemledger.RemoveRange(db.Itemledger.Where(x => x.RID == abc && x.TypeCode==5));
+                    db.Itemledger.RemoveRange(db.Itemledger.Where(x => x.RID == abc && x.TypeCode == 5));
                     db.GL.RemoveRange(db.GL.Where(x => x.RID == abc && x.TypeCode == 5));
                     db.Sales_M.RemoveRange(db.Sales_M.Where(x => x.RID == abc));
                     db.SaveChanges();
@@ -217,12 +218,13 @@ namespace SalesMngmt.Reporting
                     return;
                 }
 
-              
+
 
 
             }
 
-            if (e.ColumnIndex == 7) {
+            if (e.ColumnIndex == 7)
+            {
 
                 var order = db.Sales_M.Where(x => x.RID == abc).FirstOrDefault();
                 var list = db.Sales_D.Where(x => x.RID == abc).ToList();
@@ -380,7 +382,7 @@ namespace SalesMngmt.Reporting
                     orders.DiscountTotal = DisountTotal;
                     //decimal DiscountDifference = Convert.ToDecimal(TotalGross) - Convert.ToDecimal(Amount);
                     orders.TotalDiscount = Convert.ToDecimal(TotalDiscount);  //(Convert.ToDecimal(itemName.SalesPriceP) * Convert.ToDecimal( TOtalValue))- Convert.ToDecimal(itemName.Amt);
-                    orders.PREVBALANNCE = Convert.ToDecimal( order.PreBal);
+                    orders.PREVBALANNCE = Convert.ToDecimal(order.PreBal);
                     orders.RCVDBALANCE = Convert.ToDecimal(order.CashAmt.DefaultZero());
                     orderList.Add(orders);
                 }
@@ -388,8 +390,8 @@ namespace SalesMngmt.Reporting
 
                 orders1.GrossAmt = TotalGross;
                 orders1.DiscountTotal = Amount;
-              //  string refer = txtReference.Text.ToString();
-              //  orders1.user = refer;
+                //  string refer = txtReference.Text.ToString();
+                //  orders1.user = refer;
 
                 // orders1.TotalDiscount =  Convert.ToDecimal(DiscountDifference) + Convert.ToDecimal(order.DisAmt);  //(Convert.ToDecimal(itemName.SalesPriceP) * Convert.ToDecimal( TOtalValue))- Convert.ToDecimal(itemName.Amt);
 
@@ -410,7 +412,7 @@ namespace SalesMngmt.Reporting
                 if (compID == 1017)
                 {
 
-                   
+
 
                     var getcompanyDetail = db.tbl_Company.AsNoTracking().Where(x => x.CompID == order.diffCompany).FirstOrDefault();
 
@@ -450,7 +452,7 @@ namespace SalesMngmt.Reporting
                         silent.Run(reportViewer1, orderList, "SalesMngmt.ThermalReport.rptSaleInvoiceThermal.rdlc");
                     }
                 }
-                else if(radioButton2.Checked)
+                else if (radioButton2.Checked)
                 {
                     //Printer.setDef(ConfigurationManager.AppSettings["A4"].ToString());
 
@@ -484,28 +486,30 @@ namespace SalesMngmt.Reporting
             }
 
 
-            if (e.ColumnIndex == 6) {
+            if (e.ColumnIndex == 6)
+            {
 
 
                 pnlMain.Show();
                 dataGridView1.Rows.Clear();
             }
 
-           
+
             var detail = db.Sales_D.AsNoTracking().Where(x => x.RID == abc);
 
             int a = 1;
             double DiscRs = 0;
             double DiscPenCentage = 0;
             double Total = 0;
-            foreach (var loop in detail) {
+            foreach (var loop in detail)
+            {
 
                 var name = db.Items.AsNoTracking().Where(x => x.IID == loop.IID).FirstOrDefault();
                 dataGridView1.Rows.Add(a, name.IName, loop.CTN, loop.PCS, loop.SalesPriceP, loop.DisP, loop.DisRs, loop.Amt);
                 a++;
-                DiscRs +=Convert.ToDouble( loop.DisRs);
-                DiscPenCentage += Convert.ToDouble(loop.DisP); 
-                Total += Convert.ToDouble(loop.Amt) ;
+                DiscRs += Convert.ToDouble(loop.DisRs);
+                DiscPenCentage += Convert.ToDouble(loop.DisP);
+                Total += Convert.ToDouble(loop.Amt);
 
             }
             lblDetailDisc.Text = DiscRs.ToString();
@@ -520,11 +524,11 @@ namespace SalesMngmt.Reporting
         private void CategorysDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-         
+
 
         }
 
-      
+
         private void pnlMain_Paint(object sender, PaintEventArgs e)
         {
 
@@ -533,12 +537,13 @@ namespace SalesMngmt.Reporting
         private void btnSearch_Click(object sender, EventArgs e)
         {
             CategorysDataGridView.Rows.Clear();
-            var Record = ReportsController.SaleList(dtTo.Value, dtFrom.Value,compID);
+            var Record = ReportsController.SaleList(dtTo.Value, dtFrom.Value, compID);
 
             double Disount = 0;
             double Total = 0;
-            foreach (DataRow List in Record.Rows) {
-             
+            foreach (DataRow List in Record.Rows)
+            {
+
 
                 CategorysDataGridView.Rows.Add(List["RID"], List["AC_Title"], List["DisAmt"], List["TotalAmount"], List["InvNo"], List["EDate"]);
 

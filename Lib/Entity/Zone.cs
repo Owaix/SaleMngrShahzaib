@@ -25,5 +25,6 @@ namespace Lib.Entity
         public string Zone111111 { get; set; }
         public string Zone1111111 { get; set; }
         public string Zone11111111 { get; set; }
+        public string Zone111111111 { get; set; }
     }
 }

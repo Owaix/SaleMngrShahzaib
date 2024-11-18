@@ -176,7 +176,7 @@ namespace SalesMngmt
 
         private void barcodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 inv = new Form1(CompanyID);
+            Form1 inv = new Form1();
             inv.MdiParent = this;
             inv.Show();
 

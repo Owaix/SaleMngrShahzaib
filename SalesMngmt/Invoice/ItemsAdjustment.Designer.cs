@@ -31,9 +31,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.ProductsDataGridView = new System.Windows.Forms.DataGridView();
             this.eDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +72,7 @@
             this.pnlMain = new MetroFramework.Controls.MetroPanel();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.cmbxAccount = new System.Windows.Forms.ComboBox();
             this.cmbxHeadAccount = new MetroFramework.Controls.MetroComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtAdjustment = new MetroFramework.Controls.MetroDateTime();
@@ -85,6 +86,7 @@
             this.txtCode = new System.Windows.Forms.Label();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.cmbxProduct = new System.Windows.Forms.ComboBox();
             this.txtQty = new MetroFramework.Controls.MetroTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbxAdjustment = new MetroFramework.Controls.MetroComboBox();
@@ -104,8 +106,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dtFrom = new MetroFramework.Controls.MetroDateTime();
             this.dtTo = new MetroFramework.Controls.MetroDateTime();
-            this.cmbxProduct = new System.Windows.Forms.ComboBox();
-            this.cmbxAccount = new System.Windows.Forms.ComboBox();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProductsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getItemAdjustmentResultBindingSource)).BeginInit();
@@ -147,14 +147,14 @@
             this.ProductsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ProductsDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.ProductsDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProductsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.ProductsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ProductsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.eDateDataGridViewTextBoxColumn,
@@ -172,33 +172,33 @@
             this.Debit,
             this.Credit});
             this.ProductsDataGridView.DataSource = this.getItemAdjustmentResultBindingSource;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Tan;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ProductsDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Tan;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ProductsDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.ProductsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProductsDataGridView.EnableHeadersVisualStyles = false;
-            this.ProductsDataGridView.Location = new System.Drawing.Point(0, 25);
+            this.ProductsDataGridView.Location = new System.Drawing.Point(0, 14);
             this.ProductsDataGridView.MultiSelect = false;
             this.ProductsDataGridView.Name = "ProductsDataGridView";
             this.ProductsDataGridView.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProductsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.ProductsDataGridView.RowHeadersVisible = false;
             this.ProductsDataGridView.RowTemplate.ReadOnly = true;
             this.ProductsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ProductsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ProductsDataGridView.Size = new System.Drawing.Size(811, 345);
+            this.ProductsDataGridView.Size = new System.Drawing.Size(541, 233);
             this.ProductsDataGridView.TabIndex = 3;
             this.ProductsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductsDataGridView_CellClick);
             this.ProductsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductsDataGridView_CellContentClick);
@@ -337,7 +337,7 @@
             this.ProdBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.ProdBindingNavigator.Name = "ProdBindingNavigator";
             this.ProdBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.ProdBindingNavigator.Size = new System.Drawing.Size(811, 25);
+            this.ProdBindingNavigator.Size = new System.Drawing.Size(541, 21);
             this.ProdBindingNavigator.TabIndex = 4;
             this.ProdBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -345,15 +345,16 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 13.5F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(33, 21);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 18);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -362,7 +363,7 @@
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 18);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -370,25 +371,25 @@
             this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 18);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 21);
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 21);
             // 
             // bindingNavigatorMoProdextItem
             // 
             this.bindingNavigatorMoProdextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorMoProdextItem.Name = "bindingNavigatorMoProdextItem";
             this.bindingNavigatorMoProdextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoProdextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoProdextItem.Size = new System.Drawing.Size(23, 18);
             this.bindingNavigatorMoProdextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -396,42 +397,43 @@
             this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 18);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 21);
             // 
             // lblAdd
             // 
             this.lblAdd.Name = "lblAdd";
-            this.lblAdd.Size = new System.Drawing.Size(29, 22);
+            this.lblAdd.Size = new System.Drawing.Size(29, 18);
             this.lblAdd.Text = "Add";
             this.lblAdd.Click += new System.EventHandler(this.lblAdd_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 21);
             // 
             // lblEdit
             // 
             this.lblEdit.Name = "lblEdit";
-            this.lblEdit.Size = new System.Drawing.Size(27, 22);
+            this.lblEdit.Size = new System.Drawing.Size(27, 18);
             this.lblEdit.Text = "Edit";
             this.lblEdit.Click += new System.EventHandler(this.lblEdit_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 21);
             // 
             // toolStripTextBoxFind
             // 
+            this.toolStripTextBoxFind.Font = new System.Drawing.Font("Segoe UI", 13.5F);
             this.toolStripTextBoxFind.Name = "toolStripTextBoxFind";
-            this.toolStripTextBoxFind.Size = new System.Drawing.Size(100, 25);
+            this.toolStripTextBoxFind.Size = new System.Drawing.Size(67, 21);
             this.toolStripTextBoxFind.Leave += new System.EventHandler(this.toolStripTextBoxFind_Leave);
             // 
             // toolStripButton1
@@ -439,7 +441,7 @@
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 18);
             // 
             // saleManagerDataSet1
             // 
@@ -507,6 +509,18 @@
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             this.metroTabPage1.Click += new System.EventHandler(this.metroTabPage1_Click);
+            // 
+            // cmbxAccount
+            // 
+            this.cmbxAccount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbxAccount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbxAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxAccount.FormattingEnabled = true;
+            this.cmbxAccount.Location = new System.Drawing.Point(100, 139);
+            this.cmbxAccount.Name = "cmbxAccount";
+            this.cmbxAccount.Size = new System.Drawing.Size(354, 32);
+            this.cmbxAccount.TabIndex = 203;
+            this.cmbxAccount.Leave += new System.EventHandler(this.cmbxAccount_Leave);
             // 
             // cmbxHeadAccount
             // 
@@ -692,6 +706,18 @@
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
+            // 
+            // cmbxProduct
+            // 
+            this.cmbxProduct.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbxProduct.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbxProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxProduct.FormattingEnabled = true;
+            this.cmbxProduct.Location = new System.Drawing.Point(91, 16);
+            this.cmbxProduct.Name = "cmbxProduct";
+            this.cmbxProduct.Size = new System.Drawing.Size(357, 32);
+            this.cmbxProduct.TabIndex = 202;
+            this.cmbxProduct.Leave += new System.EventHandler(this.cmbxProduct_Leave);
             // 
             // txtQty
             // 
@@ -976,30 +1002,6 @@
             this.dtTo.Name = "dtTo";
             this.dtTo.Size = new System.Drawing.Size(173, 29);
             this.dtTo.TabIndex = 15;
-            // 
-            // cmbxProduct
-            // 
-            this.cmbxProduct.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbxProduct.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbxProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxProduct.FormattingEnabled = true;
-            this.cmbxProduct.Location = new System.Drawing.Point(91, 16);
-            this.cmbxProduct.Name = "cmbxProduct";
-            this.cmbxProduct.Size = new System.Drawing.Size(357, 32);
-            this.cmbxProduct.TabIndex = 202;
-            this.cmbxProduct.Leave += new System.EventHandler(this.cmbxProduct_Leave);
-            // 
-            // cmbxAccount
-            // 
-            this.cmbxAccount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbxAccount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbxAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxAccount.FormattingEnabled = true;
-            this.cmbxAccount.Location = new System.Drawing.Point(100, 139);
-            this.cmbxAccount.Name = "cmbxAccount";
-            this.cmbxAccount.Size = new System.Drawing.Size(354, 32);
-            this.cmbxAccount.TabIndex = 203;
-            this.cmbxAccount.Leave += new System.EventHandler(this.cmbxAccount_Leave);
             // 
             // ItemsAdjustment
             // 

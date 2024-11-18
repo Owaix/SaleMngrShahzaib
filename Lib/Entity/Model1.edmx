@@ -440,6 +440,7 @@
           <Property Name="IUnit11111" Type="varchar(max)" />
           <Property Name="IUnit111111" Type="varchar(max)" />
           <Property Name="IUnit1111111" Type="varchar(max)" />
+          <Property Name="IUnit11111111" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="JV_D">
           <Key>
@@ -566,6 +567,7 @@
           <Property Name="Party_Type11111" Type="varchar(max)" />
           <Property Name="Party_Type111111" Type="varchar(max)" />
           <Property Name="Party_Type1111111" Type="varchar(max)" />
+          <Property Name="Party_Type11111111" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="PO_D">
           <Key>
@@ -865,6 +867,7 @@
           <Property Name="RCancel" Type="float" />
           <Property Name="ExpireDate" Type="varchar" MaxLength="50" />
           <Property Name="BatchNo" Type="varchar" MaxLength="50" />
+          <Property Name="Pur_D_UnitID" Type="int" />
         </EntityType>
         <EntityType Name="Sales_M">
           <Key>
@@ -1252,6 +1255,7 @@
           <Property Name="Zone11111" Type="varchar(max)" />
           <Property Name="Zone111111" Type="varchar(max)" />
           <Property Name="Zone1111111" Type="varchar(max)" />
+          <Property Name="Zone11111111" Type="varchar(max)" />
         </EntityType>
         <Function Name="Customer_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="customerID" Type="int" Mode="In" />
@@ -2415,6 +2419,7 @@
           <Property Name="IUnit111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IUnit1111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IUnit11111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IUnit111111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="JV_D">
           <Key>
@@ -2519,6 +2524,7 @@
           <Property Name="Party_Type111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Party_Type1111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Party_Type11111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Party_Type111111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PO_D">
           <Key>
@@ -2927,6 +2933,7 @@
           <Property Name="Zone111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Zone1111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Zone11111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Zone111111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="SaleManagerEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Adj_D" EntityType="Self.Adj_D" />
@@ -3730,7 +3737,6 @@
           <EntitySet Name="SalesR_D" EntityType="SaleManagerShahzaibModel.SalesR_D" />
           <EntitySet Name="SalesR_M" EntityType="SaleManagerShahzaibModel.SalesR_M" />
           <EntitySet Name="tbl_Receipe" EntityType="SaleManagerShahzaibModel.tbl_Receipe" />
-          <EntitySet Name="Sales_D" EntityType="SaleManagerShahzaibModel.Sales_D" />
           <EntitySet Name="tbl_Company" EntityType="SaleManagerShahzaibModel.tbl_Company" />
           <EntitySet Name="tbl_karahi_Item" EntityType="SaleManagerShahzaibModel.tbl_karahi_Item" />
           <EntitySet Name="tbl_Karahi_D" EntityType="SaleManagerShahzaibModel.tbl_Karahi_D" />
@@ -3742,6 +3748,7 @@
           <EntitySet Name="JV_M" EntityType="SaleManagerShahzaibModel.JV_M" />
           <EntitySet Name="Items" EntityType="SaleManagerShahzaibModel.Items" />
           <EntitySet Name="Sales_M" EntityType="SaleManagerShahzaibModel.Sales_M" />
+          <EntitySet Name="Sales_D" EntityType="SaleManagerShahzaibModel.Sales_D" />
         </EntityContainer>
         <ComplexType Name="Customer_Select_Result">
           <Property Type="Int32" Name="AC_Code" Nullable="false" />
@@ -4730,36 +4737,6 @@
           <Property Name="isActive" Type="Boolean" />
           <Property Name="compy" Type="Int32" />
         </EntityType>
-        <EntityType Name="Sales_D">
-          <Key>
-            <PropertyRef Name="SD_ID" />
-          </Key>
-          <Property Name="SD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RID" Type="Double" />
-          <Property Name="IID" Type="Double" />
-          <Property Name="BNID" Type="Double" />
-          <Property Name="ExpDT" Type="DateTime" Precision="3" />
-          <Property Name="CTN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="PCS" Type="Double" />
-          <Property Name="SCH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Qty" Type="Double" />
-          <Property Name="PurPrice" Type="Double" />
-          <Property Name="SalesPriceP" Type="Double" />
-          <Property Name="AddPer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="AddAmt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="SalesPrice" Type="Double" />
-          <Property Name="PAmt" Type="Double" />
-          <Property Name="DisP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="DisAmt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="DisRs" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Amt2" Type="Double" />
-          <Property Name="Amt" Type="Double" />
-          <Property Name="PCK_Det" Type="Double" />
-          <Property Name="SRT" Type="Double" />
-          <Property Name="RCancel" Type="Double" />
-          <Property Name="ExpireDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="BatchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="tbl_Company">
           <Key>
             <PropertyRef Name="CompID" />
@@ -5004,6 +4981,37 @@
           <Property Name="CashCustomer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="diffCompany" Type="Int32" />
           <Property Name="diffCompanyStatus" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Sales_D">
+          <Key>
+            <PropertyRef Name="SD_ID" />
+          </Key>
+          <Property Name="SD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RID" Type="Double" />
+          <Property Name="IID" Type="Double" />
+          <Property Name="BNID" Type="Double" />
+          <Property Name="ExpDT" Type="DateTime" Precision="3" />
+          <Property Name="CTN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PCS" Type="Double" />
+          <Property Name="SCH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Qty" Type="Double" />
+          <Property Name="PurPrice" Type="Double" />
+          <Property Name="SalesPriceP" Type="Double" />
+          <Property Name="AddPer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AddAmt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SalesPrice" Type="Double" />
+          <Property Name="PAmt" Type="Double" />
+          <Property Name="DisP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DisAmt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DisRs" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Amt2" Type="Double" />
+          <Property Name="Amt" Type="Double" />
+          <Property Name="PCK_Det" Type="Double" />
+          <Property Name="SRT" Type="Double" />
+          <Property Name="RCancel" Type="Double" />
+          <Property Name="ExpireDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BatchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pur_D_UnitID" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -5354,6 +5362,7 @@
           <EntitySetMapping Name="IUnit">
             <EntityTypeMapping TypeName="SaleManagerShahzaibModel.IUnit">
               <MappingFragment StoreEntitySet="IUnit">
+                <ScalarProperty Name="IUnit111111111" ColumnName="IUnit11111111" />
                 <ScalarProperty Name="IUnit11111111" ColumnName="IUnit1111111" />
                 <ScalarProperty Name="IUnit1111111" ColumnName="IUnit111111" />
                 <ScalarProperty Name="IUnit111111" ColumnName="IUnit11111" />
@@ -5466,6 +5475,7 @@
           <EntitySetMapping Name="Party_Type">
             <EntityTypeMapping TypeName="SaleManagerShahzaibModel.Party_Type">
               <MappingFragment StoreEntitySet="Party_Type">
+                <ScalarProperty Name="Party_Type111111111" ColumnName="Party_Type11111111" />
                 <ScalarProperty Name="Party_Type11111111" ColumnName="Party_Type1111111" />
                 <ScalarProperty Name="Party_Type1111111" ColumnName="Party_Type111111" />
                 <ScalarProperty Name="Party_Type111111" ColumnName="Party_Type11111" />
@@ -5899,6 +5909,7 @@
           <EntitySetMapping Name="Zone">
             <EntityTypeMapping TypeName="SaleManagerShahzaibModel.Zone">
               <MappingFragment StoreEntitySet="Zone">
+                <ScalarProperty Name="Zone111111111" ColumnName="Zone11111111" />
                 <ScalarProperty Name="Zone11111111" ColumnName="Zone1111111" />
                 <ScalarProperty Name="Zone1111111" ColumnName="Zone111111" />
                 <ScalarProperty Name="Zone111111" ColumnName="Zone11111" />
@@ -7191,37 +7202,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Sales_D">
-            <EntityTypeMapping TypeName="SaleManagerShahzaibModel.Sales_D">
-              <MappingFragment StoreEntitySet="Sales_D">
-                <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
-                <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
-                <ScalarProperty Name="RCancel" ColumnName="RCancel" />
-                <ScalarProperty Name="SRT" ColumnName="SRT" />
-                <ScalarProperty Name="PCK_Det" ColumnName="PCK_Det" />
-                <ScalarProperty Name="Amt" ColumnName="Amt" />
-                <ScalarProperty Name="Amt2" ColumnName="Amt2" />
-                <ScalarProperty Name="DisRs" ColumnName="DisRs" />
-                <ScalarProperty Name="DisAmt" ColumnName="DisAmt" />
-                <ScalarProperty Name="DisP" ColumnName="DisP" />
-                <ScalarProperty Name="PAmt" ColumnName="PAmt" />
-                <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
-                <ScalarProperty Name="AddAmt" ColumnName="AddAmt" />
-                <ScalarProperty Name="AddPer" ColumnName="AddPer" />
-                <ScalarProperty Name="SalesPriceP" ColumnName="SalesPriceP" />
-                <ScalarProperty Name="PurPrice" ColumnName="PurPrice" />
-                <ScalarProperty Name="Qty" ColumnName="Qty" />
-                <ScalarProperty Name="SCH" ColumnName="SCH" />
-                <ScalarProperty Name="PCS" ColumnName="PCS" />
-                <ScalarProperty Name="CTN" ColumnName="CTN" />
-                <ScalarProperty Name="ExpDT" ColumnName="ExpDT" />
-                <ScalarProperty Name="BNID" ColumnName="BNID" />
-                <ScalarProperty Name="IID" ColumnName="IID" />
-                <ScalarProperty Name="RID" ColumnName="RID" />
-                <ScalarProperty Name="SD_ID" ColumnName="SD_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tbl_Company">
             <EntityTypeMapping TypeName="SaleManagerShahzaibModel.tbl_Company">
               <MappingFragment StoreEntitySet="tbl_Company">
@@ -7475,6 +7455,38 @@
                 <ScalarProperty Name="RID2" ColumnName="RID2" />
                 <ScalarProperty Name="CompID" ColumnName="CompID" />
                 <ScalarProperty Name="RID" ColumnName="RID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales_D">
+            <EntityTypeMapping TypeName="SaleManagerShahzaibModel.Sales_D">
+              <MappingFragment StoreEntitySet="Sales_D">
+                <ScalarProperty Name="Pur_D_UnitID" ColumnName="Pur_D_UnitID" />
+                <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
+                <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+                <ScalarProperty Name="RCancel" ColumnName="RCancel" />
+                <ScalarProperty Name="SRT" ColumnName="SRT" />
+                <ScalarProperty Name="PCK_Det" ColumnName="PCK_Det" />
+                <ScalarProperty Name="Amt" ColumnName="Amt" />
+                <ScalarProperty Name="Amt2" ColumnName="Amt2" />
+                <ScalarProperty Name="DisRs" ColumnName="DisRs" />
+                <ScalarProperty Name="DisAmt" ColumnName="DisAmt" />
+                <ScalarProperty Name="DisP" ColumnName="DisP" />
+                <ScalarProperty Name="PAmt" ColumnName="PAmt" />
+                <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+                <ScalarProperty Name="AddAmt" ColumnName="AddAmt" />
+                <ScalarProperty Name="AddPer" ColumnName="AddPer" />
+                <ScalarProperty Name="SalesPriceP" ColumnName="SalesPriceP" />
+                <ScalarProperty Name="PurPrice" ColumnName="PurPrice" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="SCH" ColumnName="SCH" />
+                <ScalarProperty Name="PCS" ColumnName="PCS" />
+                <ScalarProperty Name="CTN" ColumnName="CTN" />
+                <ScalarProperty Name="ExpDT" ColumnName="ExpDT" />
+                <ScalarProperty Name="BNID" ColumnName="BNID" />
+                <ScalarProperty Name="IID" ColumnName="IID" />
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="SD_ID" ColumnName="SD_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

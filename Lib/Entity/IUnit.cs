@@ -29,5 +29,6 @@ namespace Lib.Entity
         public string IUnit111111 { get; set; }
         public string IUnit1111111 { get; set; }
         public string IUnit11111111 { get; set; }
+        public string IUnit111111111 { get; set; }
     }
 }

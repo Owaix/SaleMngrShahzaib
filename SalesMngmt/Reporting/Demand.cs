@@ -159,7 +159,8 @@ namespace SalesMngmt.Reporting
                 double demandQuantity = Convert.ToDouble (item[a].CTN_PCK) * Convert.ToDouble(item[a].Demand);
                 var stockQuantity = db.getStockByID(item[a].IID).FirstOrDefault();
 
-                if (demandQuantity <= stockQuantity) {
+                if (demandQuantity == 0) { }
+               else if (demandQuantity <= stockQuantity) {
                     var ctn = Convert.ToDouble(item[a].CTN_PCK);
                     var countCtn = 0;
 

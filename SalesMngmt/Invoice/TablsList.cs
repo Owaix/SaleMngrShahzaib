@@ -202,15 +202,16 @@ namespace SalesMngmt.Invoice
             int waiterId = Convert.ToInt32(cmbxWaiter.SelectedValue);
 
             var obj = db.tbl_Order.Where(x => x.CompanyID == User.AccessFailedCount && x.TblID == id && x.isComplete == false && x.WaiterID== waiterId).FirstOrDefault();
-            if (obj != null)
-            {
+            // comment by Shahzaib 4/11/23 
+            //if (obj != null)
+            //{
                
-            }
-            else {
+            //}
+            //else {
 
-                MessageBox.Show("selected table is reserved by other user , please reopen table screen", "Table is Reserved", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //    MessageBox.Show("selected table is reserved by other user , please reopen table screen", "Table is Reserved", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
             //Pos pos = new Pos(userID);
 

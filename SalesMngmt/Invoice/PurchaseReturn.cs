@@ -1746,7 +1746,7 @@ namespace SalesMngmt.Invoice
 
                         itemID = Convert.ToInt32(item.IID.DefaultZero());
                         cmbxItems.Text = item.IName;
-                        txtCode.Text = item.BarcodeNo;
+                   //     txtCode.Text = item.BarcodeNo;
 
 
                         var saleD = db.Pur_D.AsNoTracking().Where(x => x.IID == item.IID && x.RID == saleM.RID).FirstOrDefault();

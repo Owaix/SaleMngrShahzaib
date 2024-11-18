@@ -3,6 +3,7 @@ using Lib.Entity;
 using Lib.Model;
 using Lib.Reporting;
 using Lib.Utilities;
+using SalesMngmt.Reporting;
 using SalesMngmt.Utility;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,12 @@ namespace SalesMngmt.Configs
             InitializeComponent();
             db = new SaleManagerEntities();
             compID = comID;
+
+
+           // ProductsDataGridView.Visible = false;
+           // ProdBindingNavigator.Visible = false;
+            //pnlMain.Show();
+            //label3.Text = "ADD";
         }
 
         private void Products_Load(object sender, EventArgs e)
@@ -37,10 +44,15 @@ namespace SalesMngmt.Configs
 
             ProdBindingSource.DataSource = list;
 
+            List<I_Unit> unitList = new List<I_Unit>
+        {
+            new I_Unit { IUnit = "PCS", unit_id = 1 },
+            new I_Unit { IUnit = "CTN", unit_id = 2 }
+        };
 
+             FillCombo(cmbcUni, unitList, "IUnit", "unit_id", 1);
+            cmbcUni.SelectedIndex = 0;
 
-
-            FillCombo(cmbcUni, db.I_Unit.Where(x => x.CompanyID == compID && x.active == false).ToList(), "IUnit", "unit_id", 1);
             FillCombo(cmbxCat, db.Items_Cat.Where(x => x.CompanyID == compID && x.isDeleted == false).ToList(), "Cat", "CatID", 1);
             FillCombo(cmbxMak, db.Item_Maker.Where(x => x.CompanyID == compID && x.IsDelete == false).ToList(), "Name", "MakerId", 1);
             FillCombo(cmbxSizes, db.Sizes.AsNoTracking().Where(x => x.CompanyID == compID && x.IsDeleted == false).ToList(), "SizeName", "SizeID", 1);
@@ -62,6 +74,7 @@ namespace SalesMngmt.Configs
             pnlMain.Show();
             txtProdName.Focus();
             label3.Text = "ADD";
+            cmbcUni.SelectedIndex = 0;
             string path = Application.StartupPath + "\\Img\\124444444.png";
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBox1.Image = Image.FromFile(path);
@@ -147,6 +160,27 @@ namespace SalesMngmt.Configs
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            save();
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.S))
+            {
+                save();
+                return true;
+            }
+            else {
+                return false;
+            }
+
+        }
+
+
+            public void save()
+        {
+
+            List<GL> itemGL=new List<GL>();
+            
             double checkStockQuantity;
             bool isAdd = true;
             SqlConnection con = null;
@@ -156,7 +190,7 @@ namespace SalesMngmt.Configs
             if (warehouse == null)
             {
 
-                var warehouseID = db.tbl_Warehouse.AsNoTracking().Where(x => x.CompanyID == compID && x.isDelete==false).FirstOrDefault();
+                var warehouseID = db.tbl_Warehouse.AsNoTracking().Where(x => x.CompanyID == compID && x.isDelete == false).FirstOrDefault();
 
                 if (warehouseID == null)
                 {
@@ -219,16 +253,16 @@ namespace SalesMngmt.Configs
                 {
                     MessageBox.Show("Please Provide Product Name", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (Convert.ToInt32(cmbxCat.SelectedValue) < 1)
-                {
-                    MessageBox.Show("Please Provide Category", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                //else if (Convert.ToInt32(cmbxCat.SelectedValue) < 1)
+                //{
+                //    MessageBox.Show("Please Provide Category", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
                 else
                 //if (true)
                 {
                     Lib.Entity.Items obj = (Lib.Entity.Items)ProdBindingSource.Current;
 
-                  //  var Currentobj = list.Find(x => x.IName == txtProdName.Text.Trim() && x.CompanyID == compID);
+                    //  var Currentobj = list.Find(x => x.IName == txtProdName.Text.Trim() && x.CompanyID == compID);
 
                     if (obj.IID == 0)
                     {
@@ -348,11 +382,14 @@ namespace SalesMngmt.Configs
                         }
                     }
 
-
+                  
 
                     if (obj.IID > 0)
                     {
                         isAdd = false;
+                        itemGL = new List<GL>();
+                        itemGL = db.GL.Where(x => x.AC_Code == obj.AC_Code_Inv && x.CompID == compID).ToList();
+
                     }
 
                     DataAccess access = new DataAccess();
@@ -394,7 +431,7 @@ namespace SalesMngmt.Configs
                     {
                         con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ConnectionString);
                         con.Open();
-                          trans = con.BeginTransaction();
+                        trans = con.BeginTransaction();
 
                         var inc = db.COA_D.SingleOrDefault(x => x.AC_Code == obj.AC_Code_Inc && x.CompanyID == compID);
                         var inv = db.COA_D.SingleOrDefault(x => x.AC_Code == obj.AC_Code_Inv && x.CompanyID == compID);
@@ -447,11 +484,30 @@ namespace SalesMngmt.Configs
                     }
                     else
                     {
-
+                      
                         var gl = db.GL.SingleOrDefault(x => x.AC_Code == obj.AC_Code_Inv && x.TypeCode == 0 && x.CompID == compID);
+                        // comment kr hy ishae     
+
+
+                        if (itemGL.Count == 1)
+                        {
+                            gl.Qty_IN = Convert.ToDouble(txtOpenQ.Text.DefaultZero());
+                            gl.Debit = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurchase.Text.DefaultZero());
+                            gl.Credit = 0;
+
+                        }
                         var glCapital = db.GL.SingleOrDefault(x => x.AC_Code2 == obj.AC_Code_Inv && x.TypeCode == 0 && x.CompID == compID);
                         gl.Narration = "Opening Entry";
                         glCapital.Narration = "opening Item :" + txtProdName.Text.Trim();
+
+                        if (itemGL.Count == 1)
+                        {
+                            glCapital.Qty_IN = Convert.ToDouble(txtOpenQ.Text.DefaultZero());
+                            glCapital.Debit = 0;
+                            glCapital.Credit = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurchase.Text.DefaultZero());
+
+                        }
+                        //upper tak yeha tk
                     }
                     db.SaveChanges();
                     if (obj.IID == 0)
@@ -490,6 +546,7 @@ namespace SalesMngmt.Configs
                         obj.WareHouseID = (int)warehouse;
                         obj.Cabinet = txtCabinet.Text;
                         obj.Meter = Convert.ToDouble(txtMeter.Text.DefaultZero());
+                        obj.RetailPOne= Convert.ToDecimal(txtDistribution.Text.DefaultZero());
                         db.Items.Add(obj);
                     }
                     else
@@ -499,9 +556,19 @@ namespace SalesMngmt.Configs
                         {
                             result.IName = txtProdName.Text.Trim();
                             result.Desc = txtDes.Text.Trim();
-                            //   obj.OP_Qty = Convert.ToInt32(txtOpenQ.Text.DefaultZero());
-                            //  obj.OP_Price = Convert.ToInt32(txtPurchase.Text.DefaultZero());
-                            //  obj.PurPrice = Convert.ToInt32(txtPurchase.Text.DefaultZero());
+                            //comment krna hy
+
+                            if (itemGL.Count == 1)
+                            {
+                                result.OP_Qty = Convert.ToInt32(txtOpenQ.Text.DefaultZero());
+                                result.OP_Price = Convert.ToDouble(txtPurchase.Text.DefaultZero());
+                                result.PurPrice = Convert.ToDouble(txtPurchase.Text.DefaultZero());
+                            }
+                            // upper tak
+
+
+
+
                             result.CompID = Convert.ToInt32(cmbxMak.SelectedValue);
                             result.CompanyID = compID;
                             result.SCatID = Convert.ToInt32(cmbxCat.SelectedValue);
@@ -516,7 +583,11 @@ namespace SalesMngmt.Configs
                             result.Size = Convert.ToInt32(cmbxSizes.SelectedValue.DefaultZero());
                             result.BarcodeNo = txtBarCode.Text == "" ? GenerateRandomNo().ToString() : txtBarCode.Text;
                             result.Inv_YN = chkNonInventory.Checked;
-                            //  obj.AveragePrice = Convert.ToInt32(txtPurchase.Text.DefaultZero());
+                            //comment krna hy
+                            if (itemGL.Count == 1)
+                            {
+                                result.AveragePrice = Convert.ToDouble(txtPurchase.Text.DefaultZero());
+                            }
                             result.Demand = Convert.ToDouble(txtDemand.Text.DefaultZero());
                             result.ArticleTypeId = Convert.ToInt32(cmbxArticalType.SelectedValue.DefaultZero());
                             result.Style = Convert.ToInt32(CmbxStylr.SelectedValue.DefaultZero());
@@ -528,6 +599,7 @@ namespace SalesMngmt.Configs
                             result.CTN_PCK = Convert.ToInt32(txtpacking.Text.DefaultZero());
                             result.Img = Utillityfunctions.ToBase64(openFileDialog1.FileName, path + "\\Img\\" + filename);
                             result.Meter = Convert.ToDouble(txtMeter.Text.DefaultZero());
+                            result.RetailPOne = Convert.ToDecimal(txtDistribution.Text.DefaultZero());
                         }
                     }
                     db.SaveChanges();
@@ -546,7 +618,7 @@ namespace SalesMngmt.Configs
                             Itemledger itemledger = new Itemledger();
                             itemledger.EDate = System.DateTime.Now;
                             itemledger.AC_CODE = capital;
-                            itemledger.WID =(int) warehouse;
+                            itemledger.WID = (int)warehouse;
                             itemledger.SID = 1;
                             itemledger.IID = obj.IID;
                             itemledger.BNID = 1;
@@ -555,15 +627,17 @@ namespace SalesMngmt.Configs
                             itemledger.CompanyID = compID;
                             // itemledger.ExpDT = System.DateTime.Now;
                             itemledger.OPN = Convert.ToInt32(txtOpenQ.Text.DefaultZero());
-                            itemledger.PurPrice = Convert.ToDouble(txtPurOPen.Text.DefaultZero());
-                            itemledger.PAmt = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurOPen.Text.DefaultZero());
-                            itemledger.Amt = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurOPen.Text.DefaultZero());
+                            itemledger.PurPrice = Convert.ToDouble(txtPurchase.Text.DefaultZero());
+                            itemledger.PAmt = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurchase.Text.DefaultZero());
+                            itemledger.Amt = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurchase.Text.DefaultZero());
                             itemledger.WID = (int)warehouse;
                             db.Itemledger.Add(itemledger);
                         }
                         else
                         {
-                            var checkItemAvailable=db.Itemledger.AsNoTracking().Where(x=>x.IID== obj.IID && x.TypeCode==0 ).FirstOrDefault();
+                            var checkItemAvailable = db.Itemledger.AsNoTracking().Where(x => x.IID == obj.IID && x.TypeCode == 0).ToList();
+
+                       
                             if (checkItemAvailable == null)
                             {
                                 Itemledger itemledger = new Itemledger();
@@ -578,9 +652,9 @@ namespace SalesMngmt.Configs
                                 itemledger.CompanyID = compID;
                                 // itemledger.ExpDT = System.DateTime.Now;
                                 itemledger.OPN = Convert.ToInt32(txtOpenQ.Text.DefaultZero());
-                                itemledger.PurPrice = Convert.ToDouble(txtPurOPen.Text.DefaultZero());
-                                itemledger.PAmt = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurOPen.Text.DefaultZero());
-                                itemledger.Amt = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurOPen.Text.DefaultZero());
+                                itemledger.PurPrice = Convert.ToDouble(txtPurchase.Text.DefaultZero());
+                                itemledger.PAmt = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurchase.Text.DefaultZero());
+                                itemledger.Amt = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurchase.Text.DefaultZero());
                                 itemledger.WID = (int)warehouse;
                                 db.Itemledger.Add(itemledger);
                             }
@@ -588,39 +662,59 @@ namespace SalesMngmt.Configs
                             else
                             {
 
+                                // Remove the entity
+                                var itemsToRemove = db.Itemledger.Where(x => x.IID == obj.IID && x.TypeCode == 0);
+                                db.Itemledger.RemoveRange(itemsToRemove);
 
+                                // Save changes to the database
+                                db.SaveChanges();
 
+                                // Remove the entity
+                        
+
+                                Itemledger itemledger = new Itemledger();
+                                itemledger.EDate = System.DateTime.Now;
+                                itemledger.AC_CODE = capital;
+                                itemledger.WID = (int)warehouse;
+                                itemledger.SID = 1;
+                                itemledger.IID = obj.IID;
+                                itemledger.BNID = 1;
+                                itemledger.TypeCode = 0;
+                                itemledger.RID = 0;
+                                itemledger.CompanyID = compID;
+                                // itemledger.ExpDT = System.DateTime.Now;
+                                itemledger.OPN = Convert.ToInt32(txtOpenQ.Text.DefaultZero());
+                                itemledger.PurPrice = Convert.ToDouble(txtPurchase.Text.DefaultZero());
+                                itemledger.PAmt = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurchase.Text.DefaultZero());
+                                itemledger.Amt = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurchase.Text.DefaultZero());
+                                itemledger.WID = (int)warehouse;
+                                db.Itemledger.Add(itemledger);
+
+                              
 
 
                             }
 
-                                //db.Itemledgers.RemoveRange(db.Itemledgers.Where(x => x.TypeCode == 0 && x.IID == obj.IID));
-
-                                //Itemledger itemledger = new Itemledger();
-                                //itemledger.EDate = System.DateTime.Now;
-                                //itemledger.AC_CODE = 12000001;
-                                //itemledger.WID = 1;
-                                //itemledger.SID = 1;
-                                //itemledger.IID = obj.IID;
-                                //itemledger.BNID = 1;
-                                //itemledger.TypeCode = 0;
-                                //itemledger.RID = 0;
-                                //// itemledger.ExpDT = System.DateTime.Now;
-                                //itemledger.OPN = Convert.ToInt32(txtOpenQ.Text.DefaultZero());
-                                //itemledger.PurPrice = Convert.ToDouble(txtPurOPen.Text.DefaultZero());
-                                //itemledger.PAmt = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurOPen.Text.DefaultZero());
-                                //itemledger.Amt = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurOPen.Text.DefaultZero());
-                                //db.Itemledgers.Add(itemledger);
 
 
-                            }
+                        }
                         db.SaveChanges();
                     }
-                   
 
-                    pnlMain.Hide();
-                    list = db.Items.AsNoTracking().Where(x => x.CompanyID == compID).ToList();
-                    ProdBindingSource.DataSource = list;
+
+                    //pnlMain.Hide();
+                    //list = db.Items.AsNoTracking().Where(x => x.CompanyID == compID).ToList();
+                    //ProdBindingSource.DataSource = list;
+
+                    MessageBox.Show("Product Add Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ProdBindingSource.AddNew();
+                    pnlMain.Show();
+                    txtProdName.Focus();
+                   label3.Text = "ADD";
+                    cmbcUni.SelectedIndex = 0;
+                    string paths = Application.StartupPath + "\\Img\\124444444.png";
+                    pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                    pictureBox1.Image = Image.FromFile(paths);
 
                 }
 
@@ -629,7 +723,265 @@ namespace SalesMngmt.Configs
             {
                 MessageBox.Show(ex.Message);
             }
+
+
         }
+
+        /*
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtProdName.Text))
+            {
+                MessageBox.Show("Please Provide Product Name", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (Convert.ToInt32(cmbxCat.SelectedValue) < 1)
+            {
+                MessageBox.Show("Please Provide Category", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            bool isAdd = true;
+            int warehouseID = GetOrCreateWarehouseID();
+            int capitalAccount = GetOrCreateCapitalAccount();
+            Lib.Entity.Items obj = (Lib.Entity.Items)ProdBindingSource.Current;
+
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ConnectionString))
+            {
+                con.Open();
+                using (var trans = con.BeginTransaction())
+                {
+                    try
+                    {
+                        // Check and handle existing product
+                        if (obj.IID > 0)
+                        {
+                            isAdd = false;
+                            UpdateExistingProduct(obj, trans);
+                        }
+                        else
+                        {
+                            if (IsDuplicateBarcode(obj.BarcodeNo))
+                            {
+                                MessageBox.Show("BarcodeNo Already Exists", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+
+                            // Create new COA_D records
+                            int[] accountCodes = CreateCOADRecords(obj, trans, con);
+                            obj.AC_Code_Cost = accountCodes[1];
+                            obj.AC_Code_Inc = accountCodes[0];
+                            obj.AC_Code_Inv = accountCodes[2];
+
+                            // Add new item
+                            AddNewItem(obj, warehouseID, trans);
+                        }
+
+                        // Update General Ledger
+                        UpdateGeneralLedger(obj, capitalAccount, isAdd, trans);
+
+                        // Update Item Ledger
+                        UpdateItemLedger(obj, warehouseID, capitalAccount, isAdd, trans);
+
+                        trans.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        trans.Rollback();
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+
+            pnlMain.Hide();
+            RefreshProductList();
+        }
+
+        private int GetOrCreateWarehouseID()
+        {
+            var warehouse = cmbxWareHouse.SelectedValue;
+            if (warehouse == null)
+            {
+                var warehouseID = db.tbl_Warehouse.AsNoTracking().FirstOrDefault(x => x.CompanyID == compID && x.isDelete==false);
+                if (warehouseID == null)
+                {
+                    var newWarehouse = new tbl_Warehouse
+                    {
+                        CompanyID = compID,
+                        Warehouse = "WareHouse1",
+                        isDelete = false
+                    };
+                    db.tbl_Warehouse.Add(newWarehouse);
+                    db.SaveChanges();
+                    return newWarehouse.WID;
+                }
+                return warehouseID.WID;
+            }
+            return (int)warehouse;
+        }
+
+        private int GetOrCreateCapitalAccount()
+        {
+            var maxCapital = ReportsController.getMixACodeById(12, compID);
+            int capital = (int)maxCapital.Rows[0]["Min"];
+            if (capital == 0)
+            {
+                capital = (int)db.GetAc_Code(12).FirstOrDefault();
+                var coaD = new COA_D
+                {
+                    CAC_Code = 12,
+                    PType_ID = 1,
+                    ZID = 0,
+                    AC_Code = capital,
+                    AC_Title = "Capital",
+                    DR = 0,
+                    CR = 0,
+                    Qty = 0,
+                    CompanyID = compID,
+                    InActive = false
+                };
+                db.COA_D.Add(coaD);
+                db.SaveChanges();
+            }
+            return capital;
+        }
+
+        private void UpdateExistingProduct(Lib.Entity.Items obj, SqlTransaction trans)
+        {
+            var existingProduct = db.Items.SingleOrDefault(b => b.IID == obj.IID);
+            if (existingProduct != null)
+            {
+                // Update existing fields
+                existingProduct.IName = txtProdName.Text.Trim();
+                existingProduct.Desc = txtDes.Text.Trim();
+                // Other fields...
+
+                db.SaveChanges();
+            }
+        }
+
+        private int[] CreateCOADRecords(Lib.Entity.Items obj, SqlTransaction trans, SqlConnection con)
+        {
+            DataAccess access = new DataAccess();
+            COA coa = new COA();
+            String Inventorycode = "";
+            int[] vals = new int[3] { 14, 15, 4 };
+            for (int i = 0; i < vals.Length; i++)
+            {
+                coa.AC_Code = vals[i];
+                Inventorycode = access.GetScalar("GetAc_Code", coa, con, trans);
+                var coaD = new COA_D
+                {
+                    CAC_Code = vals[i],
+                    PType_ID = 1,
+                    ZID = 0,
+                    AC_Code = Convert.ToInt32(Inventorycode),
+                    AC_Title = txtProdName.Text.Trim(),
+                    DR = 0,
+                    CR = 0,
+                    Qty = 0,
+                    InActive = false,
+                    CompanyID = compID
+                };
+                db.COA_D.Add(coaD);
+                db.SaveChanges();
+                vals[i] = Convert.ToInt32( coaD.AC_Code);
+            }
+            return vals;
+        }
+
+        private void AddNewItem(Lib.Entity.Items obj, int warehouseID, SqlTransaction trans)
+        {
+            obj.IName = txtProdName.Text.Trim();
+            obj.Desc = txtDes.Text.Trim();
+            // Other fields...
+            obj.WareHouseID = warehouseID;
+            db.Items.Add(obj);
+            db.SaveChanges();
+        }
+
+        private void UpdateGeneralLedger(Lib.Entity.Items obj, int capitalAccount, bool isAdd, SqlTransaction trans)
+        {
+            if (isAdd)
+            {
+                var gl = new GL
+                {
+                    RID = 0,
+                    RID2 = 0,
+                    TypeCode = 0,
+                    GLDate = DateTime.Now,
+                    AC_Code = obj.AC_Code_Inv,
+                    AC_Code2 = capitalAccount,
+                    Narration = "Opening Entry",
+                    Qty_IN = Convert.ToDouble(txtOpenQ.Text.DefaultZero()),
+                    Debit = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurchase.Text.DefaultZero()),
+                    Credit = 0,
+                    CompID = compID
+                };
+                db.GL.Add(gl);
+                // Capital Credit entry...
+            }
+            else
+            {
+                var gl = db.GL.SingleOrDefault(x => x.AC_Code == obj.AC_Code_Inv && x.TypeCode == 0 && x.CompID == compID);
+                if (gl != null)
+                {
+                    gl.Narration = "Opening Entry";
+                    // Update other GL fields...
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        private void UpdateItemLedger(Lib.Entity.Items obj, int warehouseID, int capitalAccount, bool isAdd, SqlTransaction trans)
+        {
+            if (isAdd)
+            {
+                var itemLedger = new Itemledger
+                {
+                    EDate = DateTime.Now,
+                    AC_CODE = capitalAccount,
+                    WID = warehouseID,
+                    SID = 1,
+                    IID = obj.IID,
+                    BNID = 1,
+                    TypeCode = 0,
+                    RID = 0,
+                    CompanyID = compID,
+                    OPN = Convert.ToInt32(txtOpenQ.Text.DefaultZero()),
+                    PurPrice = Convert.ToDouble(txtPurOPen.Text.DefaultZero()),
+                    PAmt = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurOPen.Text.DefaultZero()),
+                    Amt = Convert.ToDouble(txtOpenQ.Text.DefaultZero()) * Convert.ToDouble(txtPurOPen.Text.DefaultZero())
+                };
+                db.Itemledger.Add(itemLedger);
+                db.SaveChanges();
+            }
+            else
+            {
+                var existingLedger = db.Itemledger.SingleOrDefault(x => x.IID == obj.IID && x.TypeCode == 0);
+                if (existingLedger != null)
+                {
+                    // Update existing ledger entries
+                }
+            }
+        }
+
+        private bool IsDuplicateBarcode(string barcode)
+        {
+            return db.Items.Any(record => record.BarcodeNo == barcode && record.CompanyID == compID);
+        }
+
+        private void RefreshProductList()
+        {
+            list = db.Items.AsNoTracking().Where(x => x.CompanyID == compID).ToList();
+            ProdBindingSource.DataSource = list;
+        }
+
+
+
+        */
+
         private void PartyTypeDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ProductsDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -653,7 +1005,7 @@ namespace SalesMngmt.Configs
 
         private void toolStripTextBoxFind_Leave(object sender, EventArgs e)
         {
-          
+
         }
 
         private void txtDebit_KeyPress(object sender, KeyPressEventArgs e)
@@ -732,7 +1084,7 @@ namespace SalesMngmt.Configs
                     ProdBindingSource.Clear();
                     list = db.Items.AsNoTracking().Where(x => x.CompanyID == compID).ToList();
                     ProdBindingSource.DataSource = list;
-                 
+
                 }
                 else
                 {

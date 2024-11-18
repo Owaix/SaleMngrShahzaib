@@ -8,6 +8,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Runtime.Remoting.Contexts;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace SalesMngmt.Invoice
@@ -239,7 +243,7 @@ namespace SalesMngmt.Invoice
 
                 DbContextTransaction transaction = db.Database.BeginTransaction();
 
-                //var ds = cmbxCustomer.SelectedValue.ToString();
+             
 
                 var id = ReportsController.sp_RV_M_Insert(compID, dtTranscation.Value, code, false, employeeId);
                 RV_D rv = new RV_D();
@@ -251,6 +255,7 @@ namespace SalesMngmt.Invoice
                 rv.DisAmt = Convert.ToDouble(txtDiscount.Text.DefaultZero());
                 rv.Amt = Convert.ToDouble(txtAmount.Text.DefaultZero());
                 rv.checkDate = dtCheckDate.Value;
+              
                 db.RV_D.Add(rv);
 
                 GL gl = new GL();
@@ -261,7 +266,7 @@ namespace SalesMngmt.Invoice
                 gl.Narration = txtNarr.Text;
                 gl.Debit = Convert.ToDouble(txtAmount.Text.DefaultZero());
                 gl.Credit = 0;
-                gl.RID = Convert.ToInt32(id.Rows[0]["column1"]);
+                gl.RID = Convert.ToInt32(id.Rows[0][0]);
                 gl.CompID = compID;
                 gl.GLDate = dtTranscation.Value;
                 gl.MOP_ID = 7;
@@ -275,7 +280,7 @@ namespace SalesMngmt.Invoice
                 gl2.Narration = txtNarr.Text;
                 gl2.Debit = 0;
                 gl2.Credit = Convert.ToDouble(txtAmount.Text.DefaultZero());
-                gl2.RID = Convert.ToInt32(id.Rows[0]["column1"]);
+                gl2.RID = Convert.ToInt32(id.Rows[0][0]);
                 gl2.GLDate = dtTranscation.Value;
                 gl2.MOP_ID = 7;
                 gl2.SID = employeeId;
@@ -299,8 +304,42 @@ namespace SalesMngmt.Invoice
             else
             {
                 DbContextTransaction transaction = db.Database.BeginTransaction();
-                ReportsController.sp_RV_M_Update(compID, dtTranscation.Value, code, obj, employeeId);
-                db.sp_RV_D_Update(obj, txtNarr.Text, 7, customer, 1, Convert.ToInt32(txtChkNo.Text.DefaultZero()), 1, 0, Convert.ToDouble(txtAmount.Text.DefaultZero()), Convert.ToDouble(txtDiscount.Text.DefaultZero()), 0, 0, 0, dtCheckDate.Value);
+                //  ReportsController.sp_RV_M_Update(compID, dtTranscation.Value, code, obj , employeeId);
+
+                var record =  db.RV_M.FirstOrDefault(r => r.RID == obj);
+                if (record != null)
+                {
+                    // Update the entity's properties
+                    record.CompID = compID;
+                    record.EDate = dtTranscation.Value;
+                    record.AC_Code = code.ToString();
+                    record.SID = employeeId;
+                 //   record.Rem = rem;
+
+                    // Save the changes to the database
+                  db.SaveChangesAsync();
+                }
+
+
+                var rv_D= db.RV_D.Where(x =>  x.RID == obj);
+                db.RV_D.RemoveRange(rv_D);
+                db.SaveChanges();
+
+                //  db.sp_RV_D_Update(obj, txtNarr.Text, 7, customer, 1, Convert.ToInt32(txtChkNo.Text.DefaultZero()), 1, 0, Convert.ToDouble(txtAmount.Text.DefaultZero()), Convert.ToDouble(txtDiscount.Text.DefaultZero()), 0, 0, 0, dtCheckDate.Value);
+
+
+                RV_D rv = new RV_D();
+                rv.RID = Convert.ToInt32(obj);
+                rv.Narr = txtNarr.Text;
+                rv.MOP_ID = 7;
+                rv.AC_Code = customer.ToString();
+                rv.ChkNo = Convert.ToInt32(txtChkNo.Text.DefaultZero());
+                rv.DisAmt = Convert.ToDouble(txtDiscount.Text.DefaultZero());
+                rv.Amt = Convert.ToDouble(txtAmount.Text.DefaultZero());
+                rv.checkDate = dtCheckDate.Value;
+
+                db.RV_D.Add(rv);
+
 
                 var all = db.GL.Where(x => x.TypeCode == 14 && x.RID == obj);
                 db.GL.RemoveRange(all);
@@ -335,7 +374,7 @@ namespace SalesMngmt.Invoice
                 gl2.MOP_ID = 7;
                 db.GL.Add(gl2);
 
-
+              
 
 
 
@@ -348,7 +387,7 @@ namespace SalesMngmt.Invoice
 
             var list1 = ReportsController.RecivedVoucharIndex(DateTime.Today.AddDays(-10), DateTime.Now, compID);
             recivedVoucharIndexResultBindingSource.DataSource = list1;
-
+            recivedVoucharIndexResultBindingSource.ResetBindings(false);
             //  pnlMain.Hide();
 
             clear();
@@ -401,7 +440,7 @@ namespace SalesMngmt.Invoice
 
 
 
-                ab.CompanyTitle = new Lib.Companies().GetCompanyID(compID).CompanyTitle;
+               ab.CompanyTitle = new Lib.Companies().GetCompanyID(compID).CompanyTitle;
                 ab.CompanyPhone = new Lib.Companies().GetCompanyID(compID).CompanyPhone;
                 ab.CompanyAddress = new Lib.Companies().GetCompanyID(compID).CompanyAddress;
                 //orderList.ForEach(x =>
@@ -411,19 +450,19 @@ namespace SalesMngmt.Invoice
                 //    x.CompanyAddress = Companies.CompanyAddress;
 
                 //});
-                DateTime dtp = Convert.ToDateTime(CategorysDataGridView.Rows[e.RowIndex].Cells[2].Value);
+                DateTime dtp= Convert.ToDateTime(CategorysDataGridView.Rows[e.RowIndex].Cells[2].Value);
 
                 int customer = Convert.ToInt32(CategorysDataGridView.Rows[e.RowIndex].Cells[29].Value);
-                int cash = Convert.ToInt32(CategorysDataGridView.Rows[e.RowIndex].Cells[3].Value);
+                int cash= Convert.ToInt32(CategorysDataGridView.Rows[e.RowIndex].Cells[3].Value);
                 ab.Customer = db.COA_D.AsNoTracking().Where(x => x.AC_Code == customer).FirstOrDefault().AC_Title;
                 ab.PaymentMode = db.COA_D.AsNoTracking().Where(x => x.AC_Code == cash).FirstOrDefault().AC_Title;
-                ab.Description = CategorysDataGridView.Rows[e.RowIndex].Cells[25].Value.ToString();
-                ab.Amount = CategorysDataGridView.Rows[e.RowIndex].Cells[16].Value.ToString();
-                // ab.PreviousAmount = 
+                ab.Description= CategorysDataGridView.Rows[e.RowIndex].Cells[25].Value.ToString();
+                ab.Amount =CategorysDataGridView.Rows[e.RowIndex].Cells[16].Value.ToString();
+               // ab.PreviousAmount = 
                 DateTime dt = new DateTime();
                 dt = Convert.ToDateTime(CategorysDataGridView.Rows[e.RowIndex].Cells[2].Value);
-
-                ab.SNO = dt.ToString("dd/MM/yyyy");
+          
+                ab.SNO= dt.ToString("dd/MM/yyyy");
 
                 int Vendorcode = Convert.ToInt32(customer);
                 double balance = 0;
@@ -483,8 +522,8 @@ namespace SalesMngmt.Invoice
             cmbxCustomer.SelectedValue = Convert.ToInt32(CategorysDataGridView.Rows[e.RowIndex].Cells[29].Value);
             txtDiscount.Text = Convert.ToDouble(CategorysDataGridView.Rows[e.RowIndex].Cells[22].Value).ToString();
 
-
-            cmbxEmployee.SelectedValue = Convert.ToInt32(db.RV_M.AsNoTracking().Where(x => x.RID == obj).FirstOrDefault().SID);
+         
+            cmbxEmployee.SelectedValue= Convert.ToInt32(db.RV_M.AsNoTracking().Where(x => x.RID == obj).FirstOrDefault().SID);
 
         }
 
@@ -526,7 +565,7 @@ namespace SalesMngmt.Invoice
             var list = ReportsController.RecivedVoucharIndex(dtTo.Value, dtFrom.Value, compID);
             recivedVoucharIndexResultBindingSource.DataSource = list;
 
-
+            recivedVoucharIndexResultBindingSource.ResetBindings(false);
 
 
 

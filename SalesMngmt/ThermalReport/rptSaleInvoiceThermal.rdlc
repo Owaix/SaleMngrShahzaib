@@ -24,7 +24,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.84475in</Top>
+        <Top>1.03225in</Top>
         <Left>0.07291in</Left>
         <Height>0.301in</Height>
         <Width>2.5756in</Width>
@@ -52,7 +52,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>1.19452in</Top>
+        <Top>1.38202in</Top>
         <Left>0.07291in</Left>
         <Height>0.22083in</Height>
         <Width>0.86746in</Width>
@@ -85,7 +85,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>1.45702in</Top>
+        <Top>1.64452in</Top>
         <Left>0.07291in</Left>
         <Height>0.20766in</Height>
         <Width>0.86746in</Width>
@@ -120,7 +120,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>OrderDate</rd:DefaultName>
-        <Top>1.19452in</Top>
+        <Top>1.38202in</Top>
         <Left>1.00982in</Left>
         <Height>0.22083in</Height>
         <Width>1.63601in</Width>
@@ -155,7 +155,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>OrderID</rd:DefaultName>
-        <Top>1.44313in</Top>
+        <Top>1.63063in</Top>
         <Left>1.00982in</Left>
         <Height>0.20766in</Height>
         <Width>1.63601in</Width>
@@ -947,7 +947,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Ds</DataSetName>
-        <Top>1.95634in</Top>
+        <Top>2.14384in</Top>
         <Left>0.07291in</Left>
         <Height>0.43224in</Height>
         <Width>2.5756in</Width>
@@ -979,7 +979,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>2.45802in</Top>
+        <Top>2.64552in</Top>
         <Left>0.59527in</Left>
         <Height>0.19717in</Height>
         <Width>1.18001in</Width>
@@ -1014,7 +1014,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>2.69686in</Top>
+        <Top>2.88436in</Top>
         <Left>0.59527in</Left>
         <Height>0.21679in</Height>
         <Width>1.17999in</Width>
@@ -1049,7 +1049,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>SubTotal</rd:DefaultName>
-        <Top>2.45802in</Top>
+        <Top>2.64552in</Top>
         <Left>1.75897in</Left>
         <Height>0.19717in</Height>
         <Width>0.88688in</Width>
@@ -1084,7 +1084,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NetAmount</rd:DefaultName>
-        <Top>2.69686in</Top>
+        <Top>2.88436in</Top>
         <Left>1.75897in</Left>
         <Height>0.21679in</Height>
         <Width>0.88686in</Width>
@@ -1099,7 +1099,7 @@
         </Style>
       </Textbox>
       <Line Name="Line3">
-        <Top>3.70705in</Top>
+        <Top>3.89455in</Top>
         <Left>0.07291in</Left>
         <Height>0in</Height>
         <Width>2.5756in</Width>
@@ -1212,7 +1212,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>3.72094in</Top>
+        <Top>3.90844in</Top>
         <Left>0.07291in</Left>
         <Height>0.79882in</Height>
         <Width>2.5756in</Width>
@@ -1228,7 +1228,7 @@
         </Style>
       </Textbox>
       <Line Name="Line4">
-        <Top>4.04211in</Top>
+        <Top>4.22961in</Top>
         <Left>0.07291in</Left>
         <Height>0in</Height>
         <Width>2.5756in</Width>
@@ -1258,7 +1258,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>1.69312in</Top>
+        <Top>1.88062in</Top>
         <Left>0.07291in</Left>
         <Height>0.20699in</Height>
         <Width>0.86746in</Width>
@@ -1293,7 +1293,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>OrderID</rd:DefaultName>
-        <Top>1.69246in</Top>
+        <Top>1.87996in</Top>
         <Left>1.00982in</Left>
         <Height>0.20766in</Height>
         <Width>1.63601in</Width>
@@ -1352,7 +1352,6 @@
               <TextRun>
                 <Value>=First(Fields!CompanyAddress.Value, "Ds")</Value>
                 <Style>
-                  <FontSize>8pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                 </Style>
               </TextRun>
@@ -1422,7 +1421,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>7.57706cm</Top>
+        <Top>8.05331cm</Top>
         <Left>0.64853cm</Left>
         <Height>1.66246cm</Height>
         <Width>6.07188cm</Width>
@@ -1437,19 +1436,47 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="CompanyAddress2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!CompanyPhone.Value, "Ds")</Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>CompanyAddress</rd:DefaultName>
+        <Top>1.89356cm</Top>
+        <Left>0.64853cm</Left>
+        <Height>0.6cm</Height>
+        <Width>6.07188cm</Width>
+        <ZIndex>18</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>4.56143in</Height>
+    <Height>4.70726in</Height>
     <Style />
   </Body>
-  <Width>2.65625in</Width>
+  <Width>2.64851in</Width>
   <Page>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
-    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <PageHeight>7in</PageHeight>
+    <PageWidth>2.9in</PageWidth>
+    <ColumnSpacing>0.05118in</ColumnSpacing>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
@@ -1479,6 +1506,14 @@
         <Field Name="Amount">
           <DataField>Amount</DataField>
           <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="BatchNo">
+          <DataField>BatchNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="City">
+          <DataField>City</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Client">
           <DataField>Client</DataField>
@@ -1516,6 +1551,10 @@
           <DataField>DiscountTotal</DataField>
           <rd:TypeName>System.Nullable`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
         </Field>
+        <Field Name="ExpDate">
+          <DataField>ExpDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="GrossAmt">
           <DataField>GrossAmt</DataField>
           <rd:TypeName>System.Nullable`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
@@ -1540,6 +1579,10 @@
           <DataField>Pcs</DataField>
           <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
         </Field>
+        <Field Name="PREVBALANNCE">
+          <DataField>PREVBALANNCE</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
         <Field Name="Qty">
           <DataField>Qty</DataField>
           <rd:TypeName>System.Nullable`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
@@ -1547,6 +1590,14 @@
         <Field Name="Rate">
           <DataField>Rate</DataField>
           <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="RCVDBALANCE">
+          <DataField>RCVDBALANCE</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="ReferenceNo">
+          <DataField>ReferenceNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="RowHeight">
           <DataField>RowHeight</DataField>
@@ -1562,7 +1613,7 @@
         </Field>
         <Field Name="Time">
           <DataField>Time</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Total">
           <DataField>Total</DataField>
@@ -1584,6 +1635,6 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
-  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>b6801bed-fd6f-450e-80e6-77fdcb5d4699</rd:ReportID>
 </Report>

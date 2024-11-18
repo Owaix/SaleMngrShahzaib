@@ -1,0 +1,338 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\reporting\\salelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:reporting\\salelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|c:\\users\\hp\\downloads\\shahzaibpos\\salesmngmt\\thermalreport\\rptsaleinvoicethermal.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:thermalreport\\rptsaleinvoicethermal.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\reporting\\salelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:reporting\\salelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\invoices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:invoices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\reporting\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:reporting\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\thermalreport\\rptsaleinvprinta4.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:thermalreport\\rptsaleinvprinta4.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\thermalreport\\halfsizea4.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:thermalreport\\halfsizea4.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\thermalreport\\rptsaleinvprint.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:thermalreport\\rptsaleinvprint.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\invoice\\labinventory.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:invoice\\labinventory.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\invoice\\labinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:invoice\\labinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\invoice\\labinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:invoice\\labinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\invoice\\sinv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:invoice\\sinv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\invoice\\sinv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:invoice\\sinv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\reporting\\definition\\thermalduplicatecopy.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{ACED42A4-7B4E-4639-975E-BF689B3F3BCC}|SalesMngmt.csproj|solutionrelative:reporting\\definition\\thermalduplicatecopy.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Invoices.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Invoices.cs",
+              "RelativeDocumentMoniker": "Invoices.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Invoices.cs [Design]",
+              "RelativeToolTip": "Invoices.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T16:05:38.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Config.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Config.cs",
+              "RelativeDocumentMoniker": "Config.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Config.cs [Design]",
+              "RelativeToolTip": "Config.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T16:05:34.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Main.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Main.cs",
+              "RelativeDocumentMoniker": "Main.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Main.cs [Design]",
+              "RelativeToolTip": "Main.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T16:05:26.374Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "rptSaleInvoiceThermal.rdlc [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\ThermalReport\\rptSaleInvoiceThermal.rdlc",
+              "RelativeDocumentMoniker": "ThermalReport\\rptSaleInvoiceThermal.rdlc",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\ThermalReport\\rptSaleInvoiceThermal.rdlc [Design]",
+              "RelativeToolTip": "ThermalReport\\rptSaleInvoiceThermal.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-11-13T18:16:12.699Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HalfSizeA4.rdlc [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\ThermalReport\\HalfSizeA4.rdlc",
+              "RelativeDocumentMoniker": "ThermalReport\\HalfSizeA4.rdlc",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\ThermalReport\\HalfSizeA4.rdlc [Design]",
+              "RelativeToolTip": "ThermalReport\\HalfSizeA4.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-11-16T16:21:02.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SaleList.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Reporting\\SaleList.cs",
+              "RelativeDocumentMoniker": "Reporting\\SaleList.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Reporting\\SaleList.cs [Design]",
+              "RelativeToolTip": "Reporting\\SaleList.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T16:05:51.746Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SaleList.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Reporting\\SaleList.cs",
+              "RelativeDocumentMoniker": "Reporting\\SaleList.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Reporting\\SaleList.cs",
+              "RelativeToolTip": "Reporting\\SaleList.cs",
+              "ViewState": "AgIAAKQBAAAAAAAAAAAUwMgBAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T16:05:59.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Report.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Report.cs",
+              "RelativeDocumentMoniker": "Report.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Report.cs [Design]",
+              "RelativeToolTip": "Report.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T16:05:42.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form2.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Reporting\\Form2.cs",
+              "RelativeDocumentMoniker": "Reporting\\Form2.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Reporting\\Form2.cs",
+              "RelativeToolTip": "Reporting\\Form2.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAAAEgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T16:27:34.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "rptSaleInvPrintA4.rdlc [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\ThermalReport\\rptSaleInvPrintA4.rdlc",
+              "RelativeDocumentMoniker": "ThermalReport\\rptSaleInvPrintA4.rdlc",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\ThermalReport\\rptSaleInvPrintA4.rdlc [Design]",
+              "RelativeToolTip": "ThermalReport\\rptSaleInvPrintA4.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-11-16T16:54:51.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "rptSaleInvPrint.rdlc [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\ThermalReport\\rptSaleInvPrint.rdlc",
+              "RelativeDocumentMoniker": "ThermalReport\\rptSaleInvPrint.rdlc",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\ThermalReport\\rptSaleInvPrint.rdlc [Design]",
+              "RelativeToolTip": "ThermalReport\\rptSaleInvPrint.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-11-13T18:16:05.479Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Signin.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Signin.cs",
+              "RelativeDocumentMoniker": "Signin.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Signin.cs [Design]",
+              "RelativeToolTip": "Signin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T15:58:46.011Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\App.config",
+              "RelativeDocumentMoniker": "App.config",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\App.config",
+              "RelativeToolTip": "App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAD1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-11-16T15:57:46.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T14:14:29.362Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "labINventory.designer.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Invoice\\labINventory.designer.cs",
+              "RelativeDocumentMoniker": "Invoice\\labINventory.designer.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Invoice\\labINventory.designer.cs",
+              "RelativeToolTip": "Invoice\\labINventory.designer.cs",
+              "ViewState": "AgIAANEAAAAAAAAAAAAtwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:37:06.191Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "labINventory.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Invoice\\labINventory.cs",
+              "RelativeDocumentMoniker": "Invoice\\labINventory.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Invoice\\labINventory.cs [Design]",
+              "RelativeToolTip": "Invoice\\labINventory.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:36:43.723Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "labINventory.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Invoice\\labINventory.cs",
+              "RelativeDocumentMoniker": "Invoice\\labINventory.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Invoice\\labINventory.cs",
+              "RelativeToolTip": "Invoice\\labINventory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:34:44.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SInv.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Invoice\\SInv.cs",
+              "RelativeDocumentMoniker": "Invoice\\SInv.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Invoice\\SInv.cs",
+              "RelativeToolTip": "Invoice\\SInv.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAowB0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T19:10:42.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SInv.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Invoice\\SInv.cs",
+              "RelativeDocumentMoniker": "Invoice\\SInv.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Invoice\\SInv.cs [Design]",
+              "RelativeToolTip": "Invoice\\SInv.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T19:19:42.895Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ThermalDuplicateCopy.rdlc [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\ShahzaibPOS\\SalesMngmt\\Reporting\\Definition\\ThermalDuplicateCopy.rdlc",
+              "RelativeDocumentMoniker": "Reporting\\Definition\\ThermalDuplicateCopy.rdlc",
+              "ToolTip": "D:\\Project\\New folder\\New folder\\ShahzaibPOS\\SalesMngmt\\Reporting\\Definition\\ThermalDuplicateCopy.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-11-13T18:15:37.443Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

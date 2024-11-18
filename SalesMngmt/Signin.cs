@@ -16,7 +16,9 @@ namespace SalesMngmt
 
         private void Signin_Load(object sender, EventArgs e)
         {
-
+            metroTextBox1.Text = "suhaib";
+            metroTextBox2.Text = "suhaib";
+            metroButton1_Click(null, null);
         }
 
         private void metroTextBox1_Click(object sender, EventArgs e)

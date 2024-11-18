@@ -163,18 +163,30 @@ C:\Productprojects\ShahzaibPOS\Lib\bin\Debug\EntityFramework.dll
 C:\Productprojects\ShahzaibPOS\Lib\bin\Debug\EntityFramework.SqlServer.dll
 C:\Productprojects\ShahzaibPOS\Lib\bin\Debug\EntityFramework.xml
 C:\Productprojects\ShahzaibPOS\Lib\bin\Debug\EntityFramework.SqlServer.xml
-C:\Productprojects\ShahzaibPOS\Lib\obj\Debug\Lib.csprojResolveAssemblyReference.cache
 C:\Productprojects\ShahzaibPOS\Lib\obj\Debug\Lib.dll
 C:\Productprojects\ShahzaibPOS\Lib\obj\Debug\Lib.pdb
-C:\Users\HP\Downloads\posProject\ShahzaibPOS\Lib\bin\Debug\Lib.dll.config
-C:\Users\HP\Downloads\posProject\ShahzaibPOS\Lib\bin\Debug\Lib.dll
-C:\Users\HP\Downloads\posProject\ShahzaibPOS\Lib\bin\Debug\Lib.pdb
-C:\Users\HP\Downloads\posProject\ShahzaibPOS\Lib\bin\Debug\EntityFramework.dll
-C:\Users\HP\Downloads\posProject\ShahzaibPOS\Lib\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\HP\Downloads\posProject\ShahzaibPOS\Lib\bin\Debug\EntityFramework.xml
-C:\Users\HP\Downloads\posProject\ShahzaibPOS\Lib\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\HP\Downloads\posProject\ShahzaibPOS\Lib\obj\Debug\Lib.csprojAssemblyReference.cache
-C:\Users\HP\Downloads\posProject\ShahzaibPOS\Lib\obj\Debug\Lib.csproj.CoreCompileInputs.cache
-C:\Users\HP\Downloads\posProject\ShahzaibPOS\Lib\obj\Debug\Lib.csproj.CopyComplete
-C:\Users\HP\Downloads\posProject\ShahzaibPOS\Lib\obj\Debug\Lib.dll
-C:\Users\HP\Downloads\posProject\ShahzaibPOS\Lib\obj\Debug\Lib.pdb
+C:\Productprojects\ShahzaibPOS\Lib\obj\Debug\Lib.csprojResolveAssemblyReference.cache
+D:\Project\New folder\ShahzaibPOS\Lib\bin\Debug\Lib.dll.config
+D:\Project\New folder\ShahzaibPOS\Lib\bin\Debug\Lib.dll
+D:\Project\New folder\ShahzaibPOS\Lib\bin\Debug\Lib.pdb
+D:\Project\New folder\ShahzaibPOS\Lib\bin\Debug\EntityFramework.dll
+D:\Project\New folder\ShahzaibPOS\Lib\bin\Debug\EntityFramework.SqlServer.dll
+D:\Project\New folder\ShahzaibPOS\Lib\bin\Debug\EntityFramework.xml
+D:\Project\New folder\ShahzaibPOS\Lib\bin\Debug\EntityFramework.SqlServer.xml
+D:\Project\New folder\ShahzaibPOS\Lib\obj\Debug\Lib.csproj.AssemblyReference.cache
+D:\Project\New folder\ShahzaibPOS\Lib\obj\Debug\Lib.csproj.CoreCompileInputs.cache
+D:\Project\New folder\ShahzaibPOS\Lib\obj\Debug\Lib.csproj.Up2Date
+D:\Project\New folder\ShahzaibPOS\Lib\obj\Debug\Lib.dll
+D:\Project\New folder\ShahzaibPOS\Lib\obj\Debug\Lib.pdb
+D:\Project\New folder\New folder\ShahzaibPOS\Lib\bin\Debug\Lib.dll.config
+D:\Project\New folder\New folder\ShahzaibPOS\Lib\bin\Debug\Lib.dll
+D:\Project\New folder\New folder\ShahzaibPOS\Lib\bin\Debug\Lib.pdb
+D:\Project\New folder\New folder\ShahzaibPOS\Lib\bin\Debug\EntityFramework.dll
+D:\Project\New folder\New folder\ShahzaibPOS\Lib\bin\Debug\EntityFramework.SqlServer.dll
+D:\Project\New folder\New folder\ShahzaibPOS\Lib\bin\Debug\EntityFramework.xml
+D:\Project\New folder\New folder\ShahzaibPOS\Lib\bin\Debug\EntityFramework.SqlServer.xml
+D:\Project\New folder\New folder\ShahzaibPOS\Lib\obj\Debug\Lib.csproj.AssemblyReference.cache
+D:\Project\New folder\New folder\ShahzaibPOS\Lib\obj\Debug\Lib.csproj.CoreCompileInputs.cache
+D:\Project\New folder\New folder\ShahzaibPOS\Lib\obj\Debug\Lib.csproj.Up2Date
+D:\Project\New folder\New folder\ShahzaibPOS\Lib\obj\Debug\Lib.dll
+D:\Project\New folder\New folder\ShahzaibPOS\Lib\obj\Debug\Lib.pdb

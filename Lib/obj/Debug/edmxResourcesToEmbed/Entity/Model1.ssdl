@@ -435,6 +435,7 @@
     <Property Name="IUnit11111" Type="varchar(max)" />
     <Property Name="IUnit111111" Type="varchar(max)" />
     <Property Name="IUnit1111111" Type="varchar(max)" />
+    <Property Name="IUnit11111111" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="JV_D">
     <Key>
@@ -561,6 +562,7 @@
     <Property Name="Party_Type11111" Type="varchar(max)" />
     <Property Name="Party_Type111111" Type="varchar(max)" />
     <Property Name="Party_Type1111111" Type="varchar(max)" />
+    <Property Name="Party_Type11111111" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="PO_D">
     <Key>
@@ -860,6 +862,7 @@
     <Property Name="RCancel" Type="float" />
     <Property Name="ExpireDate" Type="varchar" MaxLength="50" />
     <Property Name="BatchNo" Type="varchar" MaxLength="50" />
+    <Property Name="Pur_D_UnitID" Type="int" />
   </EntityType>
   <EntityType Name="Sales_M">
     <Key>
@@ -1247,6 +1250,7 @@
     <Property Name="Zone11111" Type="varchar(max)" />
     <Property Name="Zone111111" Type="varchar(max)" />
     <Property Name="Zone1111111" Type="varchar(max)" />
+    <Property Name="Zone11111111" Type="varchar(max)" />
   </EntityType>
   <Function Name="Customer_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="customerID" Type="int" Mode="In" />

@@ -343,6 +343,7 @@
     <Property Name="IUnit111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="IUnit1111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="IUnit11111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IUnit111111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="JV_D">
     <Key>
@@ -447,6 +448,7 @@
     <Property Name="Party_Type111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Party_Type1111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Party_Type11111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Party_Type111111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="PO_D">
     <Key>
@@ -855,6 +857,7 @@
     <Property Name="Zone111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Zone1111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Zone11111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Zone111111111" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="SaleManagerEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Adj_D" EntityType="Self.Adj_D" />
@@ -1658,7 +1661,6 @@
     <EntitySet Name="SalesR_D" EntityType="SaleManagerShahzaibModel.SalesR_D" />
     <EntitySet Name="SalesR_M" EntityType="SaleManagerShahzaibModel.SalesR_M" />
     <EntitySet Name="tbl_Receipe" EntityType="SaleManagerShahzaibModel.tbl_Receipe" />
-    <EntitySet Name="Sales_D" EntityType="SaleManagerShahzaibModel.Sales_D" />
     <EntitySet Name="tbl_Company" EntityType="SaleManagerShahzaibModel.tbl_Company" />
     <EntitySet Name="tbl_karahi_Item" EntityType="SaleManagerShahzaibModel.tbl_karahi_Item" />
     <EntitySet Name="tbl_Karahi_D" EntityType="SaleManagerShahzaibModel.tbl_Karahi_D" />
@@ -1670,6 +1672,7 @@
     <EntitySet Name="JV_M" EntityType="SaleManagerShahzaibModel.JV_M" />
     <EntitySet Name="Items" EntityType="SaleManagerShahzaibModel.Items" />
     <EntitySet Name="Sales_M" EntityType="SaleManagerShahzaibModel.Sales_M" />
+    <EntitySet Name="Sales_D" EntityType="SaleManagerShahzaibModel.Sales_D" />
   </EntityContainer>
   <ComplexType Name="Customer_Select_Result">
     <Property Type="Int32" Name="AC_Code" Nullable="false" />
@@ -2658,36 +2661,6 @@
     <Property Name="isActive" Type="Boolean" />
     <Property Name="compy" Type="Int32" />
   </EntityType>
-  <EntityType Name="Sales_D">
-    <Key>
-      <PropertyRef Name="SD_ID" />
-    </Key>
-    <Property Name="SD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="RID" Type="Double" />
-    <Property Name="IID" Type="Double" />
-    <Property Name="BNID" Type="Double" />
-    <Property Name="ExpDT" Type="DateTime" Precision="3" />
-    <Property Name="CTN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="PCS" Type="Double" />
-    <Property Name="SCH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Qty" Type="Double" />
-    <Property Name="PurPrice" Type="Double" />
-    <Property Name="SalesPriceP" Type="Double" />
-    <Property Name="AddPer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="AddAmt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="SalesPrice" Type="Double" />
-    <Property Name="PAmt" Type="Double" />
-    <Property Name="DisP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="DisAmt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="DisRs" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Amt2" Type="Double" />
-    <Property Name="Amt" Type="Double" />
-    <Property Name="PCK_Det" Type="Double" />
-    <Property Name="SRT" Type="Double" />
-    <Property Name="RCancel" Type="Double" />
-    <Property Name="ExpireDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="BatchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="tbl_Company">
     <Key>
       <PropertyRef Name="CompID" />
@@ -2932,5 +2905,36 @@
     <Property Name="CashCustomer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="diffCompany" Type="Int32" />
     <Property Name="diffCompanyStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Sales_D">
+    <Key>
+      <PropertyRef Name="SD_ID" />
+    </Key>
+    <Property Name="SD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RID" Type="Double" />
+    <Property Name="IID" Type="Double" />
+    <Property Name="BNID" Type="Double" />
+    <Property Name="ExpDT" Type="DateTime" Precision="3" />
+    <Property Name="CTN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PCS" Type="Double" />
+    <Property Name="SCH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Qty" Type="Double" />
+    <Property Name="PurPrice" Type="Double" />
+    <Property Name="SalesPriceP" Type="Double" />
+    <Property Name="AddPer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AddAmt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="Double" />
+    <Property Name="PAmt" Type="Double" />
+    <Property Name="DisP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DisAmt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DisRs" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Amt2" Type="Double" />
+    <Property Name="Amt" Type="Double" />
+    <Property Name="PCK_Det" Type="Double" />
+    <Property Name="SRT" Type="Double" />
+    <Property Name="RCancel" Type="Double" />
+    <Property Name="ExpireDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BatchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pur_D_UnitID" Type="Int32" />
   </EntityType>
 </Schema>

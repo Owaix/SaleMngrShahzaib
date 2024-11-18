@@ -82,7 +82,6 @@ namespace Lib.Entity
         public virtual DbSet<SalesR_D> SalesR_D { get; set; }
         public virtual DbSet<SalesR_M> SalesR_M { get; set; }
         public virtual DbSet<tbl_Receipe> tbl_Receipe { get; set; }
-        public virtual DbSet<Sales_D> Sales_D { get; set; }
         public virtual DbSet<tbl_Company> tbl_Company { get; set; }
         public virtual DbSet<tbl_karahi_Item> tbl_karahi_Item { get; set; }
         public virtual DbSet<tbl_Karahi_D> tbl_Karahi_D { get; set; }
@@ -94,6 +93,7 @@ namespace Lib.Entity
         public virtual DbSet<JV_M> JV_M { get; set; }
         public virtual DbSet<Items> Items { get; set; }
         public virtual DbSet<Sales_M> Sales_M { get; set; }
+        public virtual DbSet<Sales_D> Sales_D { get; set; }
     
         public virtual ObjectResult<Customer_Select_Result> Customer_Select(Nullable<int> customerID)
         {

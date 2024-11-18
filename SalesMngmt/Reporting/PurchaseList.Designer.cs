@@ -27,10 +27,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblDiscount = new System.Windows.Forms.Label();
@@ -51,6 +51,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancel = new MetroFramework.Controls.MetroButton();
             this.CategorysDataGridView = new System.Windows.Forms.DataGridView();
+            this.RID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CUSTOMER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DISCOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.INVOICENO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DETAIL = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.CategoryBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.CategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -79,14 +87,6 @@
             this.spgetArticleResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.articleTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.styleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.RID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CUSTOMER = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DISCOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.INVOICENO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DETAIL = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.metroPanel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -194,14 +194,14 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Book Antiqua", 11.25F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Book Antiqua", 11.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sno,
@@ -212,14 +212,14 @@
             this.DiscPer,
             this.DiscRupees,
             this.Total});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Unicode MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Tan;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Tan;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(13, 81);
             this.dataGridView1.Name = "dataGridView1";
@@ -325,14 +325,14 @@
             this.CategorysDataGridView.AllowUserToDeleteRows = false;
             this.CategorysDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.CategorysDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Book Antiqua", 11.25F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CategorysDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Book Antiqua", 11.25F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CategorysDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.CategorysDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CategorysDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RID,
@@ -343,14 +343,14 @@
             this.Date,
             this.DETAIL,
             this.Delete});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Unicode MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Tan;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CategorysDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Tan;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CategorysDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.CategorysDataGridView.EnableHeadersVisualStyles = false;
             this.CategorysDataGridView.Location = new System.Drawing.Point(0, 25);
             this.CategorysDataGridView.Name = "CategorysDataGridView";
@@ -363,6 +363,60 @@
             this.CategorysDataGridView.TabIndex = 6;
             this.CategorysDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CategorysDataGridView_CellClick);
             this.CategorysDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CategorysDataGridView_CellContentClick);
+            // 
+            // RID
+            // 
+            this.RID.HeaderText = "RID";
+            this.RID.Name = "RID";
+            this.RID.ReadOnly = true;
+            // 
+            // CUSTOMER
+            // 
+            this.CUSTOMER.HeaderText = "CUSTOMER";
+            this.CUSTOMER.Name = "CUSTOMER";
+            this.CUSTOMER.ReadOnly = true;
+            // 
+            // DISCOUNT
+            // 
+            this.DISCOUNT.HeaderText = "DISCOUNT";
+            this.DISCOUNT.Name = "DISCOUNT";
+            this.DISCOUNT.ReadOnly = true;
+            // 
+            // AMOUNT
+            // 
+            this.AMOUNT.HeaderText = "AMOUNT";
+            this.AMOUNT.Name = "AMOUNT";
+            this.AMOUNT.ReadOnly = true;
+            // 
+            // INVOICENO
+            // 
+            this.INVOICENO.HeaderText = "INVOICE NO";
+            this.INVOICENO.Name = "INVOICENO";
+            this.INVOICENO.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // DETAIL
+            // 
+            this.DETAIL.HeaderText = "DETAIL";
+            this.DETAIL.Name = "DETAIL";
+            this.DETAIL.ReadOnly = true;
+            this.DETAIL.Text = "Detail";
+            this.DETAIL.UseColumnTextForLinkValue = true;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
             // 
             // CategoryBindingNavigator
             // 
@@ -434,6 +488,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -491,6 +546,7 @@
             // 
             // toolStripTextBoxFind
             // 
+            this.toolStripTextBoxFind.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxFind.Name = "toolStripTextBoxFind";
             this.toolStripTextBoxFind.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxFind.Leave += new System.EventHandler(this.toolStripTextBoxFind_Leave);
@@ -577,60 +633,6 @@
             // styleBindingSource
             // 
             this.styleBindingSource.DataSource = typeof(Lib.Entity.Styles);
-            // 
-            // RID
-            // 
-            this.RID.HeaderText = "RID";
-            this.RID.Name = "RID";
-            this.RID.ReadOnly = true;
-            // 
-            // CUSTOMER
-            // 
-            this.CUSTOMER.HeaderText = "CUSTOMER";
-            this.CUSTOMER.Name = "CUSTOMER";
-            this.CUSTOMER.ReadOnly = true;
-            // 
-            // DISCOUNT
-            // 
-            this.DISCOUNT.HeaderText = "DISCOUNT";
-            this.DISCOUNT.Name = "DISCOUNT";
-            this.DISCOUNT.ReadOnly = true;
-            // 
-            // AMOUNT
-            // 
-            this.AMOUNT.HeaderText = "AMOUNT";
-            this.AMOUNT.Name = "AMOUNT";
-            this.AMOUNT.ReadOnly = true;
-            // 
-            // INVOICENO
-            // 
-            this.INVOICENO.HeaderText = "INVOICE NO";
-            this.INVOICENO.Name = "INVOICENO";
-            this.INVOICENO.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // DETAIL
-            // 
-            this.DETAIL.HeaderText = "DETAIL";
-            this.DETAIL.Name = "DETAIL";
-            this.DETAIL.ReadOnly = true;
-            this.DETAIL.Text = "Detail";
-            this.DETAIL.UseColumnTextForLinkValue = true;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
             // 
             // PurchaseList
             // 

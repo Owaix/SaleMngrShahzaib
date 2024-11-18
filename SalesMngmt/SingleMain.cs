@@ -1,5 +1,5 @@
-﻿using Microsoft.SqlServer.Management.Common;
-using Microsoft.SqlServer.Management.Smo;
+﻿using Microsoft.SqlServer.Management.Smo;
+using Microsoft.SqlServer.Management.Common;
 using SalesMngmt.Configs;
 using SalesMngmt.Invoice;
 using SalesMngmt.Reporting;
@@ -20,6 +20,27 @@ namespace SalesMngmt
             Shown += Config_Shown;
             CompanyID = cmpID;
             User = user;
+
+            if (cmpID == 1024) {
+
+                receiptToolStripMenuItem.Visible=false;
+                receiptToolStripMenuItem.Visible = false;
+
+                tableToolStripMenuItem.Visible = false;
+
+
+                styleToolStripMenuItem.Visible = false;
+
+                labToolStripMenuItem.Visible = false;
+
+                karahiToolStripMenuItem.Visible = false;
+
+                posToolStripMenuItem.Visible = false;
+
+                expireItemToolStripMenuItem.Visible = false;
+
+
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,12 +55,12 @@ namespace SalesMngmt
 
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+          
         }
 
         private void itemsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+          
         }
 
         private void Config_Shown(object sender, EventArgs e)
@@ -90,7 +111,7 @@ namespace SalesMngmt
 
         private void itemsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-
+          
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -106,7 +127,7 @@ namespace SalesMngmt
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
             Products products = new Products(CompanyID);
-            products.MdiParent = this;
+          //  products.MdiParent = this;
             products.Show();
         }
 
@@ -204,7 +225,7 @@ namespace SalesMngmt
         {
             Receipe syncClientDB = new Receipe(CompanyID);
 
-            //   Users syncClientDB = new Users(CompanyID);
+         //   Users syncClientDB = new Users(CompanyID);
             syncClientDB.MdiParent = this;
             syncClientDB.Show();
         }
@@ -262,7 +283,7 @@ namespace SalesMngmt
         private void productToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Products products = new Products(CompanyID);
-            products.MdiParent = this;
+          products.MdiParent = this;
             products.Show();
         }
 
@@ -446,9 +467,9 @@ namespace SalesMngmt
 
         private void barcodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 inv = new Form1(CompanyID);
-            inv.MdiParent = this;
-            inv.Show();
+            //Form1 inv = new Form1(CompanyID);
+            //inv.MdiParent = this;
+            //inv.Show();
         }
 
         private void expireItemToolStripMenuItem_Click(object sender, EventArgs e)
@@ -531,7 +552,7 @@ namespace SalesMngmt
         private void databaseBackupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String DestPath = @"D:\Backup";
-            String DbName = "SaleMgmt";
+            String DbName = "SaleManagerShahzaib";
             try
             {
                 string databaseName = DbName;//dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].FormattedValue.ToString();
@@ -595,6 +616,7 @@ namespace SalesMngmt
             ProductList inv = new ProductList(CompanyID);
             inv.MdiParent = this;
             inv.Show();
+
         }
 
         private void jVSaleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -602,6 +624,7 @@ namespace SalesMngmt
             Jv_Sale inv = new Jv_Sale(CompanyID);
             inv.MdiParent = this;
             inv.Show();
+
         }
 
         private void itemWiseSaleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -614,6 +637,7 @@ namespace SalesMngmt
         {
             OpeningCash sum = new OpeningCash(CompanyID);
             sum.Show();
+
         }
 
         private void receiptToolStripMenuItem_Click(object sender, EventArgs e)
@@ -622,16 +646,11 @@ namespace SalesMngmt
             sum.Show();
         }
 
-        private void salesPersonWiseItemToolStripMenuItem_Click(object sender, EventArgs e)
+        private void bikeAndSaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ItembySR sum = new ItembySR(CompanyID);
-            sum.Show();
-        }
-
-        private void recAmountBySalesPersonToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RecAmtbySR sum = new RecAmtbySR(CompanyID);
-            sum.Show();
+            Bike_Sale_Purchase inv = new Bike_Sale_Purchase(CompanyID);
+            inv.MdiParent = this;
+            inv.Show();
         }
     }
 }

@@ -60,7 +60,6 @@
         <EntityTypeShape EntityType="SaleManagerShahzaibModel.SalesR_D" Width="1.5" PointX="11.375" PointY="25.75" />
         <EntityTypeShape EntityType="SaleManagerShahzaibModel.SalesR_M" Width="1.5" PointX="13.375" PointY="25.75" />
         <EntityTypeShape EntityType="SaleManagerShahzaibModel.tbl_Receipe" Width="1.5" PointX="7.375" PointY="25.75" />
-        <EntityTypeShape EntityType="SaleManagerShahzaibModel.Sales_D" Width="1.5" PointX="19.375" PointY="21.75" />
         <EntityTypeShape EntityType="SaleManagerShahzaibModel.tbl_Company" Width="1.5" PointX="25.375" PointY="19.75" />
         <EntityTypeShape EntityType="SaleManagerShahzaibModel.tbl_karahi_Item" Width="1.5" PointX="11.375" PointY="16.75" />
         <EntityTypeShape EntityType="SaleManagerShahzaibModel.tbl_Karahi_D" Width="1.5" PointX="9.375" PointY="19.75" />
@@ -72,6 +71,7 @@
         <EntityTypeShape EntityType="SaleManagerShahzaibModel.JV_M" Width="1.5" PointX="27.375" PointY="9.75" />
         <EntityTypeShape EntityType="SaleManagerShahzaibModel.Items" Width="1.5" PointX="27.375" PointY="15.75" />
         <EntityTypeShape EntityType="SaleManagerShahzaibModel.Sales_M" Width="1.5" PointX="15.375" PointY="25.75" />
+        <EntityTypeShape EntityType="SaleManagerShahzaibModel.Sales_D" Width="1.5" PointX="19.375" PointY="21.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -111,8 +111,9 @@ namespace SalesMngmt.Configs
             if (obj == 0)
             {
                 clear();
-                list = db.sp_getArticle(compID).ToList();
-                spgetArticleResultBindingSource.DataSource = list;
+                DataTable list1 = ReportsController.sp_getArticle(compID);
+
+                spgetArticleResultBindingSource.DataSource = list1;
             }
         }
 
@@ -201,8 +202,12 @@ namespace SalesMngmt.Configs
                 db.SaveChanges();
                 pnlMain.Hide();
                 obj = 0;
-                list = db.sp_getArticle(compID).ToList();
-                spgetArticleResultBindingSource.DataSource = list;
+                //list = db.sp_getArticle(compID).ToList();
+                //spgetArticleResultBindingSource.DataSource = list;
+
+                DataTable list1 = ReportsController.sp_getArticle(compID);
+
+                spgetArticleResultBindingSource.DataSource = list1;
 
                 //list = db.ArticleTypes.ToList();
                 //articleTypeBindingSource.DataSource = list;

@@ -217,7 +217,7 @@ namespace SalesMngmt.Reporting
                     journalVoucherD.AC_Code = Convert.ToInt32(cmbxvendor.SelectedValue);
                     journalVoucherD.AC_Code2 = Convert.ToInt32(cmbxCreditVendor.SelectedValue);
                     journalVoucherD.Amt = Convert.ToDouble(txtAmount.Text);
-
+                    
                    
                     // journalVoucherD.co
                     db.JV_D.Add(journalVoucherD);
@@ -233,7 +233,7 @@ namespace SalesMngmt.Reporting
                     g1.Credit = 0;
                     g1.Narration = txtDesc.Text;
                     g1.GLDate = dtEntryDate.Value;
-
+                    g1.CompID = compID;
                     db.GL.Add(g1);
                     db.SaveChanges();
 
@@ -247,6 +247,7 @@ namespace SalesMngmt.Reporting
                     g2.Credit = Convert.ToDouble(txtAmount.Text);
                     g2.GLDate = dtEntryDate.Value;
                     g2.Narration = txtDesc.Text;
+                    g2.CompID = compID; 
                     db.GL.Add(g2);
                     db.SaveChanges();
 

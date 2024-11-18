@@ -1104,7 +1104,7 @@ namespace SalesMngmt.Invoice
             //    txtAmt.Text = Convert.ToInt32(ProductsDataGridView.Rows[e.RowIndex].Cells[13].Value.DefaultZero()).ToString();
             //    cmbxAdjustment.SelectedIndex = 1;
             //}
-            pnlMain.Show();
+            //pnlMain.Show();
         }
 
 

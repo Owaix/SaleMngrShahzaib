@@ -227,7 +227,7 @@ namespace Lib.Reporting
             sqlCmd.Parameters.AddWithValue("@CompID", companyID);
             sqlCmd.Parameters.AddWithValue("@EDate", Date);
             sqlCmd.Parameters.AddWithValue("@AC_Code", AcCode);
-            sqlCmd.Parameters.AddWithValue("@Id", AcCode);
+            sqlCmd.Parameters.AddWithValue("@Id", id);
             sqlCmd.Parameters.AddWithValue("@SID", EmployeeId);
 
             SqlDataAdapter adp = new SqlDataAdapter(sqlCmd);
