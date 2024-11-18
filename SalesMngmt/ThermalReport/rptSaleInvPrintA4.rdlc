@@ -2,141 +2,6 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Textbox Name="Textbox10">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Date Time</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontWeight>Normal</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>0.10796in</Top>
-        <Left>4.31091in</Left>
-        <Height>0.22083in</Height>
-        <Width>2.86954in</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox11">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Invoice #</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontWeight>Normal</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>0.13502in</Top>
-        <Left>0.15466in</Left>
-        <Height>0.20766in</Height>
-        <Width>2.86954in</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="OrderDate">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!Time.Value, "Ds")</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>OrderDate</rd:DefaultName>
-        <Top>0.10796in</Top>
-        <Left>5.24782in</Left>
-        <Height>0.22083in</Height>
-        <Width>1.93263in</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="OrderID">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!InvoiceID.Value, "Ds")</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>OrderID</rd:DefaultName>
-        <Top>0.12113in</Top>
-        <Left>1.09428in</Left>
-        <Height>0.20766in</Height>
-        <Width>1.92992in</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
@@ -1045,97 +910,28 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Ds</DataSetName>
-        <Top>0.87184in</Top>
-        <Left>0.15466in</Left>
+        <Top>0.12184in</Top>
+        <Left>0.07966in</Left>
         <Height>0.68224in</Height>
         <Width>7.11212in</Width>
-        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox15">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>customer</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontWeight>Normal</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>0.37112in</Top>
-        <Left>0.15466in</Left>
-        <Height>0.20699in</Height>
-        <Width>2.86954in</Width>
-        <ZIndex>5</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="OrderID2">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!Client.Value, "Ds")</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>OrderID</rd:DefaultName>
-        <Top>0.37079in</Top>
-        <Left>1.09157in</Left>
-        <Height>0.20766in</Height>
-        <Width>1.93263in</Width>
-        <ZIndex>6</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
-    <Height>4.32909cm</Height>
+    <Height>2.04236cm</Height>
     <Style>
       <Border>
         <Style>None</Style>
       </Border>
     </Style>
   </Body>
-  <Width>18.45762cm</Width>
+  <Width>18.27395cm</Width>
   <Page>
     <PageHeader>
-      <Height>3.96546cm</Height>
+      <Height>7.07514cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1166,7 +962,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>CompanyTitle</rd:DefaultName>
-          <Top>0.11771in</Top>
+          <Top>0.28021in</Top>
           <Left>1.14216in</Left>
           <Height>0.49306in</Height>
           <Width>5.42579in</Width>
@@ -1195,7 +991,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>CompanyAddress</rd:DefaultName>
-          <Top>0.6316in</Top>
+          <Top>0.7941in</Top>
           <Left>1.14216in</Left>
           <Height>0.16667in</Height>
           <Width>5.42579in</Width>
@@ -1225,7 +1021,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>CompanyPhone</rd:DefaultName>
-          <Top>0.80383in</Top>
+          <Top>0.96633in</Top>
           <Left>1.14216in</Left>
           <Height>0.20256in</Height>
           <Width>5.42579in</Width>
@@ -1258,7 +1054,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>1.07583in</Top>
+          <Top>1.23833in</Top>
           <Left>2.56435in</Left>
           <Height>0.301in</Height>
           <Width>2.69792in</Width>
@@ -1269,6 +1065,210 @@
             </Border>
           </Style>
         </Textbox>
+        <Textbox Name="Textbox10">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Date Time</Value>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontWeight>Normal</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox10</rd:DefaultName>
+          <Top>2.015in</Top>
+          <Left>4.21076in</Left>
+          <Height>0.22083in</Height>
+          <Width>2.86954in</Width>
+          <ZIndex>4</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox11">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Invoice #</Value>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontWeight>Normal</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox10</rd:DefaultName>
+          <Top>2.04206in</Top>
+          <Left>0.05451in</Left>
+          <Height>0.20766in</Height>
+          <Width>2.86954in</Width>
+          <ZIndex>5</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>1pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="OrderDate">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!Time.Value, "Ds")</Value>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>OrderDate</rd:DefaultName>
+          <Top>2.015in</Top>
+          <Left>5.14767in</Left>
+          <Height>0.22083in</Height>
+          <Width>1.93263in</Width>
+          <ZIndex>6</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="OrderID">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!InvoiceID.Value, "Ds")</Value>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>OrderID</rd:DefaultName>
+          <Top>2.02817in</Top>
+          <Left>0.99413in</Left>
+          <Height>0.20766in</Height>
+          <Width>1.92992in</Width>
+          <ZIndex>7</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>1pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox15">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>customer</Value>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontWeight>Normal</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox10</rd:DefaultName>
+          <Top>2.27816in</Top>
+          <Left>0.05451in</Left>
+          <Height>0.20699in</Height>
+          <Width>2.86954in</Width>
+          <ZIndex>8</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>1pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="OrderID2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!Client.Value, "Ds")</Value>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>OrderID</rd:DefaultName>
+          <Top>2.27783in</Top>
+          <Left>0.99142in</Left>
+          <Height>0.20766in</Height>
+          <Width>1.93263in</Width>
+          <ZIndex>9</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>1pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -1277,7 +1277,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>12.10241cm</Height>
+      <Height>3.99559cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1301,13 +1301,13 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox10</rd:DefaultName>
-          <Top>0.06944in</Top>
-          <Left>4.45516in</Left>
+          <Top>0.09444in</Top>
+          <Left>4.74266in</Left>
           <Height>0.26209in</Height>
-          <Width>1.18001in</Width>
+          <Width>1.18174in</Width>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -1334,14 +1334,14 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox10</rd:DefaultName>
-          <Top>0.59958in</Top>
-          <Left>4.45516in</Left>
+          <Top>0.61208in</Top>
+          <Left>4.74266in</Left>
           <Height>0.24829in</Height>
           <Width>1.1827in</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -1359,6 +1359,7 @@
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontWeight>Bold</FontWeight>
+                    <Format>'PKR'#,0.00;('PKR'#,0.00)</Format>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1368,14 +1369,14 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>SubTotal</rd:DefaultName>
-          <Top>0.06944in</Top>
+          <Top>0.10694in</Top>
           <Left>5.99384in</Left>
-          <Height>0.26209in</Height>
-          <Width>1.27023in</Width>
+          <Height>0.24829in</Height>
+          <Width>1.19792in</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -1393,6 +1394,7 @@
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontWeight>Bold</FontWeight>
+                    <Format>'PKR'#,0.00;('PKR'#,0.00)</Format>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1402,14 +1404,14 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>NetAmount</rd:DefaultName>
-          <Top>0.59958in</Top>
+          <Top>0.61208in</Top>
           <Left>5.99386in</Left>
           <Height>0.24829in</Height>
-          <Width>1.27023in</Width>
+          <Width>1.19792in</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -1436,14 +1438,14 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox10</rd:DefaultName>
-          <Top>0.33606in</Top>
-          <Left>4.45785in</Left>
+          <Top>0.36106in</Top>
+          <Left>4.74266in</Left>
           <Height>0.24829in</Height>
-          <Width>1.18001in</Width>
+          <Width>1.1827in</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -1461,6 +1463,7 @@
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontWeight>Bold</FontWeight>
+                    <Format>'PKR'#,0.00;('PKR'#,0.00)</Format>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1470,14 +1473,14 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>NetAmount</rd:DefaultName>
-          <Top>0.33606in</Top>
+          <Top>0.36106in</Top>
           <Left>5.99655in</Left>
           <Height>0.24829in</Height>
-          <Width>1.27023in</Width>
+          <Width>1.19792in</Width>
           <ZIndex>5</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -1495,6 +1498,7 @@
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontWeight>Bold</FontWeight>
+                    <Format>'PKR'#,0.00;('PKR'#,0.00)</Format>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1504,14 +1508,14 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>SubTotal</rd:DefaultName>
-          <Top>0.30801in</Top>
-          <Left>3.11818in</Left>
+          <Top>0.35801in</Top>
+          <Left>3.10568in</Left>
           <Height>0.26209in</Height>
           <Width>1.27023in</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -1529,6 +1533,7 @@
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontWeight>Bold</FontWeight>
+                    <Format>'PKR'#,0.00;('PKR'#,0.00)</Format>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1538,14 +1543,14 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>NetAmount</rd:DefaultName>
-          <Top>0.90728in</Top>
-          <Left>3.11818in</Left>
+          <Top>0.86978in</Top>
+          <Left>3.10776in</Left>
           <Height>0.24829in</Height>
           <Width>1.27023in</Width>
           <ZIndex>7</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -1563,6 +1568,7 @@
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontWeight>Bold</FontWeight>
+                    <Format>'PKR'#,0.00;('PKR'#,0.00)</Format>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1573,13 +1579,13 @@
           </Paragraphs>
           <rd:DefaultName>NetAmount</rd:DefaultName>
           <Top>0.61455in</Top>
-          <Left>3.11818in</Left>
+          <Left>3.10568in</Left>
           <Height>0.24829in</Height>
           <Width>1.27023in</Width>
           <ZIndex>8</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -1597,6 +1603,7 @@
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontWeight>Bold</FontWeight>
+                    <Format>'PKR'#,0.00;('PKR'#,0.00)</Format>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1606,14 +1613,14 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>NetAmount</rd:DefaultName>
-          <Top>0.02778in</Top>
-          <Left>3.11818in</Left>
+          <Top>0.10972in</Top>
+          <Left>3.10776in</Left>
           <Height>0.24829in</Height>
           <Width>1.27023in</Width>
           <ZIndex>9</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -1694,14 +1701,14 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox10</rd:DefaultName>
-          <Top>0.04167in</Top>
+          <Top>0.10417in</Top>
           <Left>1.85281in</Left>
           <Height>0.26209in</Height>
-          <Width>1.18001in</Width>
+          <Width>1.18539in</Width>
           <ZIndex>11</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -1728,14 +1735,14 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox10</rd:DefaultName>
-          <Top>0.57181in</Top>
+          <Top>0.62181in</Top>
           <Left>1.85281in</Left>
-          <Height>0.24829in</Height>
-          <Width>1.1827in</Width>
+          <Height>0.26209in</Height>
+          <Width>1.18539in</Width>
           <ZIndex>12</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -1762,14 +1769,14 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox10</rd:DefaultName>
-          <Top>0.30829in</Top>
+          <Top>0.37079in</Top>
           <Left>1.8555in</Left>
-          <Height>0.24829in</Height>
-          <Width>1.18001in</Width>
+          <Height>0.26209in</Height>
+          <Width>1.18539in</Width>
           <ZIndex>13</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -1798,12 +1805,12 @@
           <rd:DefaultName>Textbox10</rd:DefaultName>
           <Top>0.88954in</Top>
           <Left>1.8555in</Left>
-          <Height>0.24829in</Height>
-          <Width>1.1827in</Width>
+          <Height>0.26209in</Height>
+          <Width>1.18539in</Width>
           <ZIndex>14</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
